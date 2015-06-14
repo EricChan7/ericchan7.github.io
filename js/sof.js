@@ -27,10 +27,16 @@ sof.controller('lyric', function ($scope, $http) {
 		});
 
 	$scope.toggleMenu = function(index) {
+		var status = $scope.performer[index].activeClass;
+		
 		angular.forEach($scope.performer, function(v, i) {
 			v.activeClass = "";
 		});
-		$scope.performer[index].activeClass = "active";
+		if (status == "active") {
+			$scope.performer[index].activeClass = "";
+		} else {
+			$scope.performer[index].activeClass = "active";
+		}
 		$(window).trigger("scroll");
 	};
 
