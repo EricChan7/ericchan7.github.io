@@ -4,7 +4,7 @@ $(function() {
 		var $window = $(window);
 		if ($(".menu-list").height() > window.innerHeight) {
 			var percentage = $window.scrollTop() / ($window.height()-window.innerHeight);
-			var scrollAmount = $(".menu-list").height() - window.innerHeight + 16;
+			var scrollAmount = $(".menu-list").height() - window.innerHeight + 50;
 			$(".menu-list").css("margin-top", -scrollAmount*percentage);
 		} else {
 			$(".menu-list").css("margin-top", 0);
