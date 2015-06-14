@@ -1,30 +1,8 @@
 <!doctype>
-<html ng-app="sof">
-	<head>
-		<title>Sound of Fate</title>
-		<link rel="stylesheet" type="text/css" href="./css/sof.css">
-	</head>
-	<body ng-controller="lyric">
-		<section class="main-container">
-			<p ng-bind-html="name"></p>
-		</section>
-		<aside class="main-aside {{isActive}}">
-			<div class="main-aside-background" style="background-image:url({{backgroundImage}})"></div>
-			<ul class="menu-list">
-				<li ng-repeat="(i, p) in performer" ng-click="toggleMenu(i)" ng-class="p.activeClass">
-					{{p.name}}
-					<ul class="menu-list-sub">
-						<li ng-repeat="s in p.songs" ng-click="changeSong(s.id)">{{s.title}}</li>
-					</ul>
-				</li>
-			</ul>
-		</aside>
-
-
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-		
-		<script type="text/javascript" src="./js/sof.js"></script>
-	</body>
+<html>
+<head>
+	<meta http-equiv="refresh" content="0; url=/song" />
+</head>
+<body>
+</body>
 </html>
