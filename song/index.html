@@ -2,7 +2,9 @@
 <html ng-app="sof">
 	<head>
 		<title>Sound of Fate</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="./css/sof.css">
+		<link rel="shortcut icon" href="./img/favicon.ico" />
 	</head>
 	<body ng-controller="lyric">
 		<section class="main-container">
@@ -14,7 +16,7 @@
 				<li ng-repeat="(i, p) in performer" ng-click="toggleMenu(i)" ng-class="p.activeClass">
 					{{p.name}}
 					<ul class="menu-list-sub">
-						<li ng-repeat="s in p.songs" ng-click="changeSong(s.id)">{{s.title}}</li>
+						<li ng-repeat="(j, s) in p.songs" ng-click="changeSong(s.id, i, j, $event)" ng-class="s.activeClass">{{s.title}}</li>
 					</ul>
 				</li>
 			</ul>

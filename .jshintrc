@@ -1,0 +1,28 @@
+{
+  "globalstrict": true,
+  "globals": {
+    "jQuery": false,
+    "$": false,
+    "browser": false,
+    "element": false,
+    "window": false,
+    "describe": false,
+    "beforeEach": false,
+    "it": false,
+    "console": false,
+    "require": false,
+    "module": false,
+    "by": false,
+    "before": false,
+    "after": false,
+    "beforeAll": false,
+    "Modernizr": false,
+    "afterAll": false,
+    "document": false,
+    "require": false,
+    "clearTimeout": false,
+    "setTimeout": false,
+    "process": false,
+    "angular": false
+  }
+}

@@ -21,7 +21,7 @@ li {
 	height: 100vh;
 	width: 100%;
 	width: 100vw;
-	transition: all .2s;
+	transition: all .3s;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -57,12 +57,20 @@ li {
 	-webkit-filter: brightness(.35) blur(2px);
 }
 
+.menu-list {
+	transition: all .5s;
+}
+
 .menu-list > li.active, .menu-list > li.active .menu-list-sub {
 	color: #F9E6FF;
 }
 
 .menu-list > li:not(.active) .menu-list-sub {
 	display: none;
+}
+
+.menu-list-sub li.active {
+	color: #BB66DD;
 }
 
 .main-container {
