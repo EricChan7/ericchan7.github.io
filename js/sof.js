@@ -50,5 +50,5 @@ sof.controller('lyric', function ($scope, $http) {
 			});
 	};
 
-	$scope.changeSong(17);
+	$scope.changeSong(1);
 });
