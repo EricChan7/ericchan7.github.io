@@ -4,7 +4,7 @@ $(function() {
 		var $window = $(window);
 		if ($(".menu-list").height() > window.innerHeight) {
 			var percentage = $window.scrollTop() / ($window.height()-window.innerHeight);
-			var scrollAmount = $(".menu-list").height() - window.innerHeight;
+			var scrollAmount = $(".menu-list").height() - window.innerHeight + 16;
 			$(".menu-list").css("margin-top", -scrollAmount*percentage);
 		} else {
 			$(".menu-list").css("margin-top", 0);
@@ -31,13 +31,13 @@ sof.controller('lyric', function ($scope, $http) {
 			v.activeClass = "";
 		});
 		$scope.performer[index].activeClass = "active";
+		$(window).trigger("scroll");
 	};
 
 	$scope.getMenuClass = function(index) {
 		return $scope.performer[index].activeClass;
 	};
 	
-
 	$scope.changeSong = function(id) {
 		$scope.isActive = "";
 		$http.get(domain + "/api/song/" + id)
