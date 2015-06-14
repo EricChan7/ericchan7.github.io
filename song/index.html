@@ -11,7 +11,7 @@
 			<p ng-bind-html="name"></p>
 		</section>
 		<aside class="main-aside {{isActive}}">
-			<div class="main-aside-background" style="background-image:url({{backgroundImage}})"></div>
+			<div class="main-aside-background" ng-style="backgroundImage"></div>
 			<ul class="menu-list">
 				<li ng-repeat="(i, p) in performer" ng-click="toggleMenu(i)" ng-class="p.activeClass">
 					{{p.name}}
