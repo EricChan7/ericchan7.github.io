@@ -17,7 +17,7 @@ $(function() {
 
 var sof = angular.module('sof', ['ngSanitize']);
 
-sof.controller('lyric', function ($scope, $http, $timeout) {
+sof.controller('lyric', function ($scope, $http) {
 	var domain = "http://soundofate.herokuapp.com";
 	$scope.isActive = "";
 	// $scope.backgroundImage = "https://lh3.googleusercontent.com/-fvIlNH8gFLA/VEx1xROHUII/AAAAAAABLZE/AFjPaXnS1dI/w1280/1.jpg";
@@ -49,9 +49,7 @@ sof.controller('lyric', function ($scope, $http, $timeout) {
 		if ($event) $event.stopPropagation();
 		$scope.isActive = "";
 		$http.get(domain + "/api/song/" + id).success(function (data, status) {
-			$timeout(function () {
-				$scope.isActive = "active";
-			}, 1000);
+			$scope.isActive = "active";
 			if (status === 200) {
 				$scope.name = data.content.replace(/%E3%80%80/g, "　").replace(/\r?\n/g, "<br/>");
 				$scope.backgroundImage["background-image"] = "url(" + data.url_base + "w1280/1.jpg)";
