@@ -4,11 +4,12 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
+var browserify = require('gulp-browserify');
 var del = require('del');
  
 var paths = {
-  scripts: ['song/src/js/*.js'],
-  images: 'song/src/img/*'
+  scripts: ['song/js/*.js'],
+  images: 'song/img/*'
 };
  
 // Not all tasks need to use streams 
@@ -25,6 +26,10 @@ gulp.task('scripts', ['clean'], function() {
     .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(concat('sof.min.js'))
+      .pipe(browserify({
+          insertGlobals : true,
+          debug : !gulp.env.production
+        }))
     .pipe(gulp.dest('song/build/js'));
 });
  

@@ -19,8 +19,10 @@
   "homepage": "https://github.com/EricChan7/SoundoFate",
   "dependencies": {
     "angular": "^1.3.16",
+    "browserify": "^10.2.4",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
     "gulp-coffee": "^2.3.1",
     "gulp-concat": "^2.5.2",
     "gulp-imagemin": "^2.2.1",

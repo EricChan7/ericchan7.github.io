@@ -58,7 +58,7 @@ li {
 }
 
 .menu-list {
-	transition: all .5s;
+	transition: all .1s;
 }
 
 .menu-list > li.active, .menu-list > li.active .menu-list-sub {
