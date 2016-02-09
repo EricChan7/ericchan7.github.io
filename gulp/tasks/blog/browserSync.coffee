@@ -1,0 +1,14 @@
+
+browserSync = require('browser-sync').create();
+
+module.exports = (gulp, $, config) ->
+  config = config.blog
+
+  gulp.task 'browserSync', () ->
+    browserSync.init
+      server: config.browserSync.serve
+      port: 8080
+
+    gulp.watch config.watch.css, ['style', browserSync.reload]
+    gulp.watch config.watch.js, ['browserify', browserSync.reload]
+    gulp.watch config.watch.html, ['page', browserSync.reload]
