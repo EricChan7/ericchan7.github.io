@@ -1,7 +1,7 @@
 isProd = process.env.NODE_ENV == 'production'
 
 module.exports = (gulp, $, config) ->
-  config = config.blog.style
+  config = config.style
   gulp.task 'style', () ->
     $.rubySass config.src,
         loadPath: config.paths

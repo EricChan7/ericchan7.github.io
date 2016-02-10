@@ -1,5 +1,5 @@
 module.exports = (gulp, $, config) ->
-  config = config.blog.font
+  config = config.font
 
   gulp.task 'font', () ->
     gulp.src config.src

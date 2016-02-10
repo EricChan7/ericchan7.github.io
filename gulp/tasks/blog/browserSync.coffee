@@ -2,8 +2,6 @@
 browserSync = require('browser-sync').create();
 
 module.exports = (gulp, $, config) ->
-  config = config.blog
-
   gulp.task 'browserSync', () ->
     browserSync.init
       server: config.browserSync.serve

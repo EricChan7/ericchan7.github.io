@@ -1,5 +1,5 @@
 module.exports = (gulp, $, config) ->
-  config = config.blog.page
+  config = config.page
 
   gulp.task 'page', () ->
     gulp.src config.src

@@ -5,7 +5,7 @@ buffer = require 'vinyl-buffer'
 isProd = process.env.NODE_ENV == 'production'
 
 module.exports = (gulp, $, config) ->
-  config = config.blog.browserify
+  config = config.browserify
 
   gulp.task 'browserify', () ->
     bundler = browserify
