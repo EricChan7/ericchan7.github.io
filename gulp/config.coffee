@@ -10,7 +10,7 @@ module.exports =
     style:
       src: './blog/css/app.sass'
       dest: "#{destPath}/blog/css"
-      lib: []
+      paths: ['./node_modules', './blog/css']
 
     page:
       src: './blog/*.html'
@@ -20,6 +20,6 @@ module.exports =
       serve: "#{destPath}/blog"
 
     watch:
-      css: './src/css/**/**'
-      js: ['./src/js/**/**']
-      html: ['./src/*.html']
+      css: './blog/css/**/**'
+      js: ['./blog/js/**/**']
+      html: ['./blog/*.html']
