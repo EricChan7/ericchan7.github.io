@@ -23,3 +23,7 @@ module.exports =
       css: './blog/css/**/**'
       js: ['./blog/js/**/**']
       html: ['./blog/*.html']
+
+    font:
+      src: './node_modules/font-awesome/fonts/**.*'
+      dest: "#{destPath}/blog/fonts"

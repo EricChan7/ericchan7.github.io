@@ -1,17 +1,14 @@
 
 import $ from 'jquery'
 import React from 'react'
-import ReactDOM from 'react-dom'
+import {render} from 'react-dom'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import HomeAppBar from 'page/home'
 
 $(document).ready(function() {
-  let Hello = React.createClass({
-    render: function() {
-      return <div>Hello {this.props.name}</div>
-    }
-  })
 
-  ReactDOM.render(
-    <Hello name="World" />,
+  render(
+    <HomeAppBar />,
     document.getElementById('container')
   )
 })
