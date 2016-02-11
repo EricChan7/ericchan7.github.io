@@ -4196,5 +4196,14 @@ body {
 .fa-percent:before {
   content: ""; }
 
+.cards {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  max-width: 1024px;
+  width: 100%;
+  margin: auto; }
+  .cards .card {
+    margin: 12px 0; }
+
 body {
   font-size: 16px; }

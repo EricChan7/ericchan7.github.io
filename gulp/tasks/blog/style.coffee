@@ -7,5 +7,5 @@ module.exports = (gulp, $, config) ->
         loadPath: config.paths
       .on 'error', $.rubySass.logError
       .pipe $.autoprefixer()
-      .pipe $.if(isProd, $.minifyCss())
+      .pipe $.if(isProd, $.cssnano())
       .pipe gulp.dest(config.dest)
