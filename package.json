@@ -5,7 +5,9 @@
   "description": "Webapp for dev",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp"
+    "start": "gulp",
+    "predeploy": "NODE_ENV=production gulp build",
+    "deploy": "git commit -am 'commit for production' && git push"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "jquery": "^2.1.4",
     "material-ui": "^0.14.4",
     "material-ui-sass": "^0.7.5",
+    "moment": "^2.11.2",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-tap-event-plugin": "^0.2.2",

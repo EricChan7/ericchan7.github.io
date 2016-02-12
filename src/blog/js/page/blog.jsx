@@ -1,19 +1,39 @@
+
+import $ from 'jquery'
 import React from 'react'
 import AppBar from 'material-ui/lib/app-bar'
 import MyCard from 'component/card'
 
 class Blog extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      posts: []
+    }
+  }
+
+  componentWillMount() {
+    $.get('http://localhost:8000/blog', (data) => {
+      let posts = []
+
+      $.each(JSON.parse(data), (k, v) => {
+        posts.push(
+          <MyCard
+            post={v.fields}
+          />
+        )
+      })
+
+      this.setState((previousState) => {
+        return {posts: previousState.posts.concat(posts)}
+      })
+
+      // console.log(this.state.posts)
+    })
+  }
+
   render() {
-    let posts = []
-    let data = {
-      a: 1,
-      b: 2
-    }
-
-    for (let d in data) {
-      posts.push(<MyCard />)
-    }
-
     return (
       <div
         id="blog"
@@ -26,12 +46,12 @@ class Blog extends React.Component {
               position: 'fixed'
             }
           }
-          zDepth="3"
+          zDepth={3}
         />
         <div
           className="cards"
         >
-          {posts}
+          {this.state.posts}
         </div>
       </div>
     )

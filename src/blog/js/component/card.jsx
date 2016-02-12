@@ -6,37 +6,45 @@ import CardMedia from 'material-ui/lib/card/card-media'
 import CardTitle from 'material-ui/lib/card/card-title'
 // import FlatButton from 'material-ui/lib/flat-button'
 import CardText from 'material-ui/lib/card/card-text'
+import moment from 'moment'
 
-let MyCard = () => (
-  <Card
-    className="card"
-  >
-    <CardMedia
-      overlay={
+class MyCard extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <Card
+        className="card"
+      >
+        <CardMedia
+          overlay={
+            <CardTitle
+              title={this.props.post.title}
+              subtitle={moment(this.props.post.created_at).format('Do MMMM YYYY')}
+            />
+          }
+        >
+          <img src={this.props.post.cover_image} />
+        </CardMedia>
         <CardTitle
-          title="Overlay title"
-          subtitle="Post date"
+          actAsExpander
+          showExpandableButton
+          subtitle="Continue reading..."
         />
-      }
-    >
-      <img src="http://lorempixel.com/600/337/food/" />
-    </CardMedia>
-    <CardTitle
-      actAsExpander
-      showExpandableButton
-      subtitle="Continue reading..."
-    />
-    <CardText
-      expandable
-    >
-    {
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-              Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-              Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.`
-    }
-    </CardText>
-  </Card>
-)
+        <CardText
+          expandable
+        >
+        {this.props.post.content}
+        </CardText>
+      </Card>
+    )
+  }
+}
+
+MyCard.propTypes = {
+  post: React.PropTypes.objectOf(React.PropTypes.string)
+}
 
 export default MyCard

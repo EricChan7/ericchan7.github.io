@@ -7,6 +7,8 @@ import theme from 'component/theme'
 import Blog from 'page/blog'
 
 $(document).ready(function() {
+  window.$ = $
+
   injectTapEventPlugin()
 
   class Page extends React.Component {
