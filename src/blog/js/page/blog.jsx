@@ -14,7 +14,7 @@ class Blog extends React.Component {
   }
 
   componentWillMount() {
-    $.get('http://localhost:8000/blog', (data) => {
+    $.get('http://light-shadow.herokuapp.com/blog', (data) => {
       let posts = []
 
       $.each(JSON.parse(data), (k, v) => {
