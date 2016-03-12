@@ -22,7 +22,7 @@ module.exports =
   watch:
     css: "#{src}/css/**/**"
     js: "#{src}/js/**/**"
-    html: "#{src}/*html"
+    html: "#{src}/*.html"
 
   font:
     src: './node_modules/font-awesome/fonts/**.*'

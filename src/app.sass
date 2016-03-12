@@ -1,0 +1,57 @@
+@import url(https://fonts.googleapis.com/css?family=Handlee)
+
+body
+  font-family: 'Handlee', cursive
+  background-color: #212121
+  color: #ff8a65
+  box-sizing: border-box
+
+ul
+  list-style: none
+  margin: 0
+  padding: 0
+
+h1, h2, h3, h4
+  margin: 0
+
+.clearfix
+  display: inline-block
+
+  &:before
+    content: " "
+    display: table
+    clear: both
+
+#main-container
+  max-width: 1024px
+  width: 100%
+  height: 100%
+  margin: auto
+
+  .main
+    margin: 15% auto 0
+    width: 640px
+
+    .subtitle li
+      float: left
+
+      &:after
+        content: '| '
+        margin: 0 .75em
+
+      &:last-child:after
+        content: ''
+        margin: 0
+
+    .skills li
+      float: left
+
+      &:after
+        content: ', '
+        margin: 0 .75em 0 0
+
+      &:last-child:after
+        content: ''
+        margin: 0
+
+

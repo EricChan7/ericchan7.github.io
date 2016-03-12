@@ -5,6 +5,7 @@
   "description": "Webapp for dev",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install",
     "start": "gulp",
     "predeploy": "NODE_ENV=production gulp build",
     "deploy": "git commit -am 'commit for production' && git push"
@@ -25,10 +26,14 @@
     "material-ui": "^0.14.4",
     "material-ui-sass": "^0.7.5",
     "moment": "^2.11.2",
+    "normalize.css": "^3.0.3",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-tap-event-plugin": "^0.2.2",
-    "underscore": "^1.8.3"
+    "socket.io": "^1.4.5",
+    "socket.io-p2p-server": "^1.2.0",
+    "underscore": "^1.8.3",
+    "utf-8-validate": "^1.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.8",
@@ -38,6 +43,7 @@
     "browser-sync": "^2.8.2",
     "browserify": "^10.2.4",
     "coffee-script": "^1.9.3",
+    "coffeeify": "^2.0.1",
     "del": "^1.2.0",
     "eslint": "^2.0.0-rc.1",
     "eslint-config-standard": "^5.1.0",

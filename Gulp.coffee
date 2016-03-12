@@ -2,9 +2,11 @@ gulp = require 'gulp'
 $  = require('gulp-load-plugins')()
 requireDir = require 'require-dir'
 
-# Require all gulp tasks, including subfolders
-blog = requireDir './gulp/tasks/blog', { recurse: yes }
-blogConfig = require('./gulp/tasks/blogConfig')
+app = process.env.TARGET || 'home'
 
-for name, task of blog
-  task(gulp, $, blogConfig)
+# Require all gulp tasks, including subfolders
+tasks = requireDir "./gulp/tasks/#{app}", { recurse: yes }
+config = require "./gulp/config/#{app}"
+
+for name, task of tasks
+  task(gulp, $, config)
