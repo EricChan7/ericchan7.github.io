@@ -45,6 +45,10 @@ a:hover, a:active
   width: 100%
   height: 100%
   margin: auto
+  transition: filter .5s
+
+  &.overlay-open
+    filter: blur(4px)
 
   .main
     margin: 15% auto 6em
@@ -75,6 +79,7 @@ header
   max-width: $max-width
   width: 100%
   margin: 2em auto 0
+  background-color: rgba($background-color, 0.9)
 
   a.icon
     font-size: 1.5em
@@ -86,7 +91,7 @@ footer
   padding: .25em 0 2em
   max-width: $max-width
   width: 100%
-  background-color: $background-color
+  background-color: rgba($background-color, 0.9)
 
   &:before, &:after
     content: ' '
@@ -109,8 +114,41 @@ footer
     float: left
     width: 70%
     text-align: right
+    font-size: 0.75em
 
   @media #{ $break-point }
     .left, .right
       width: 100%
       text-align: left
+
+.modal
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(#424242, 0.9)
+  visibility: hidden
+  transform: translateY(-100%)
+  transition: transform 0.1s
+
+  &.open
+    visibility: visible
+    transform: translateY(0)
+    transition: transform 0.3s
+
+  .close-button
+    position: absolute
+    right: 2em
+    top: 1em
+    font-size: 2em
+
+  .container
+    max-width: $max-width
+    width: 100%
+    margin: auto
+
+    p
+      text-align: center
+      font-size: 5em
+      margin-top: 3em

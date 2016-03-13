@@ -9,3 +9,4 @@ module.exports = (gulp, $, config) ->
 
     gulp.watch config.watch.css, ['style', browserSync.reload]
     gulp.watch config.watch.html, ['page', browserSync.reload]
+    gulp.watch config.watch.js, ['browserify', browserSync.reload]
