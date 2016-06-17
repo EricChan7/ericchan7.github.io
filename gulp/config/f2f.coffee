@@ -6,6 +6,7 @@ module.exports =
     entries: ["#{src}/js/app.coffee"]
     dest: "#{dest}/js"
     paths: ["#{src}/js", './node_modules']
+    extensions: ['.coffee', '.js']
 
   style:
     src: "#{src}/css/app.sass"

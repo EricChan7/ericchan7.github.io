@@ -11,13 +11,18 @@ module.exports = (gulp, $, config) ->
   gulp.task 'browserify', () ->
     bundler = browserify
       entries: config.entries
-      extensions: ['.coffee', '.js']
+      extensions: config.extensions
       paths: config.paths
       debug: false
 
-    bundler.transform coffeeify,
+    if config.script == 'coffee'
+      bundler.transform coffeeify,
       bare: false
       header: true
+
+    if config.script == 'react'
+      bundler.transform 'babelify',
+        presets: ['es2015', 'react']
 
     bundler
       .bundle()

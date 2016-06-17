@@ -2,10 +2,14 @@ src = './src'
 dest = '.'
 
 module.exports =
+  tasks: ['browserify', 'style', 'page']
+
   browserify:
+    script: 'coffee'
     entries: ["#{src}/app.coffee"]
     dest: "#{dest}"
     paths: ["#{src}/js", './node_modules']
+    extensions: ['.coffee', '.js']
 
   style:
     src: "#{src}/app.sass"
