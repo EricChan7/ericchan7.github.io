@@ -1,0 +1,67 @@
+
+body
+  background-color: black
+  font-size: 16px
+
+#clock
+  width: 100%
+  height: 100%
+  margin: auto
+  display: none
+
+  .face
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateY(-50%) translateX(-50%)
+    width: 15em
+    height: 15em
+    border-radius: 15em
+    background-color: #222
+
+    span
+      position: absolute
+      display: block
+      width: 1em
+      text-align: center
+      color: white
+
+  .hour
+    position: absolute
+    left: 50%
+    top: 50%
+    transform-origin: 0 0
+
+    .dot
+      width: .7em
+      height: .7em
+      margin: .3em
+      background-color: #666
+
+  .minute
+    position: absolute
+    left: 50%
+    top: 50%
+    transform-origin: 0 0
+
+    .dot
+      width: .5em
+      height: .5em
+      margin: .5em
+      background-color: #999
+
+  .second
+    position: absolute
+    left: 50%
+    top: 50%
+    transform-origin: 0 0
+
+    .dot
+      width: .25em
+      height: .25em
+      margin: .75em
+      background-color: #ddd
+
+.dot
+  display: block
+  border-radius: 10em
