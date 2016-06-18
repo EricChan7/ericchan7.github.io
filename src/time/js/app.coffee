@@ -31,7 +31,7 @@ $ ->
       wakeLockEnabled = true
       $this.text 'Wake Unlock'
 
-  Pressure.set 'body',
+  Pressure.set '#clock',
     end: ->
       $('#clock').css
         transform: 'scale(1)'
