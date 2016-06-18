@@ -1,22 +1,21 @@
 window.$ = window.jQuery = require 'jquery'
-noSleep = require 'nosleep'
+# noSleep = require 'nosleep'
 Clock = require 'clock'
 
-enabledSleepLock = false
+# enabledSleepLock = false
 
-enableNoSleep = () ->
-  noSleep.enable()
-  document.removeEventListener('touchstart', enableNoSleep, false)
+# enableNoSleep = () ->
+#   noSleep.enable()
+#   document.removeEventListener('touchstart', enableNoSleep, false)
 
 $ ->
   clock = new Clock
-  $(document).on 'clockReady', ->
-    clock.colorHands()
-    clock.start()
+  clock.colorHands()
+  clock.start()
 
-  $('body').click ->
-    if enabledSleepLock
-      noSleep.disable()
-    else
-      document.addEventListener('touchstart', enableNoSleep, false)
-    enabledSleepLock = !enabledSleepLock
+  # $('body').click ->
+  #   if enabledSleepLock
+  #     noSleep.disable()
+  #   else
+  #     document.addEventListener('touchstart', enableNoSleep, false)
+  #   enabledSleepLock = !enabledSleepLock

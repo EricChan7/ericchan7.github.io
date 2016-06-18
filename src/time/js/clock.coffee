@@ -42,7 +42,7 @@ class Clock
     $dot.clone().appendTo @$minute for [1..5]
     $dot.clone().appendTo @$second for [1..7]
     @$clock.show()
-    $(document).trigger 'clockReady'
+    console.log 'Clock Ready.'
 
   @colorHand: ($elem) ->
     $.each $('.dot', $elem), (i, v) ->
