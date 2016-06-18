@@ -17,6 +17,8 @@ syms =
   6: 'IV', 7: '', 8: ''
   9: 'IX', 10: '', 11: ''
 
+updateClickInterval = undefined
+
 class Clock
   constructor: ->
     @$clock = $ '#clock'
@@ -45,6 +47,7 @@ class Clock
     console.log 'Clock Ready.'
 
   @reset: () ->
+    clearInterval updateClickInterval
     $clock = $ '#clock'
     $ '.hour, .minute, .second', $clock
       .html ''
@@ -102,7 +105,7 @@ class Clock
       if s == 0
         Clock.colorHand self.$clock
 
-    setInterval ->
+    updateClickInterval = setInterval ->
       updateClock()
     , 1000
 
