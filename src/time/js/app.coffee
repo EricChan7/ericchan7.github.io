@@ -1,34 +1,42 @@
 window.$ = window.jQuery = require 'jquery'
-# noSleep = require 'nosleep'
+# NoSleep = require 'nosleep'
 Clock = require 'clock'
 Pressure = require 'pressure'
 
-# enabledSleepLock = false
-
-# enableNoSleep = () ->
-#   noSleep.enable()
-#   document.removeEventListener('touchstart', enableNoSleep, false)
+wakeLockEnabled = false
 
 $ ->
+  noSleep = new NoSleep()
   $('#menu .refresh').click (evt) ->
     evt.preventDefault()
     Clock.reset()
     clock = new Clock
     clock.colorHands()
     clock.start()
-    false
   .trigger 'click'
 
   $('#menu .finish').click (evt) ->
     evt.preventDefault()
     $('#menu').hide()
 
-  Pressure.set '#clock',
+  $('#menu .wake').click (evt) ->
+    evt.preventDefault()
+    $this = $ this
+    if wakeLockEnabled
+      noSleep.disable()
+      wakeLockEnabled = false
+      $this.text 'Wake Lock'
+    else
+      noSleep.enable()
+      wakeLockEnabled = true
+      $this.text 'Wake Unlock'
+
+  Pressure.set 'body',
     end: ->
-      $(this).css
+      $('#clock').css
         transform: 'scale(1)'
     change: (force, event) ->
-      $(this).css
+      $('#clock').css
         transform: "scale(#{1-force})"
     startDeepPress: ->
       $('#menu').show()
