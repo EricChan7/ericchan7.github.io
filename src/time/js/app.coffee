@@ -10,8 +10,9 @@ enableNoSleep = () ->
 
 $ ->
   clock = new Clock
-  clock.colorHands()
-  clock.start()
+  $(document).on 'clockReady', ->
+    clock.colorHands()
+    clock.start()
 
   $('body').click ->
     if enabledSleepLock
