@@ -44,6 +44,19 @@ class Clock
     @$clock.show()
     console.log 'Clock Ready.'
 
+  @reset: () ->
+    $clock = $ '#clock'
+    $ '.hour, .minute, .second', $clock
+      .html ''
+    $ '.face span', $clock
+      .remove()
+    $ '.brand', $clock
+      .html '
+        <i class="d-hour"></i>
+        <i class="semicolon">:</i>
+        <i class="d-minute"></i>
+      '
+
   @colorHand: ($elem) ->
     $.each $('.dot', $elem), (i, v) ->
       $(v).css

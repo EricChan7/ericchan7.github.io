@@ -9,9 +9,14 @@ Clock = require 'clock'
 #   document.removeEventListener('touchstart', enableNoSleep, false)
 
 $ ->
-  clock = new Clock
-  clock.colorHands()
-  clock.start()
+  $('.refresh').click (evt) ->
+    evt.preventDefault()
+    Clock.reset()
+    clock = new Clock
+    clock.colorHands()
+    clock.start()
+    false
+  .trigger 'click'
 
   # $('body').click ->
   #   if enabledSleepLock
