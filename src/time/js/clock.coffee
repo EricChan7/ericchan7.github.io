@@ -93,7 +93,7 @@ class Clock
 
     @$semicolon.velocity
       opacity: 0
-    , duration: 500
+    , loop: true, duration: 500
 
     updateClock()
     @$clock.show()
