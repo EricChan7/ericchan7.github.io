@@ -34,7 +34,8 @@
     "socket.io": "^1.4.5",
     "socket.io-p2p-server": "^1.2.0",
     "underscore": "^1.8.3",
-    "utf-8-validate": "^1.2.1"
+    "utf-8-validate": "^1.2.1",
+    "velocity-react": "^1.1.5"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.8",
