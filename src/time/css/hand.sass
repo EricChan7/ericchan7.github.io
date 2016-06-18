@@ -1,0 +1,27 @@
+@mixin dot-size($size, $color)
+  .dot
+    width: $size
+    height: $size
+    margin: 1em - $size
+    background-color: $color
+
+.hour
+  position: absolute
+  left: 50%
+  top: 50%
+  transform-origin: 0 0
+  @include dot-size(.7em, #666)
+
+.minute
+  position: absolute
+  left: 50%
+  top: 50%
+  transform-origin: 0 0
+  @include dot-size(.5em, #999)
+
+.second
+  position: absolute
+  left: 50%
+  top: 50%
+  transform-origin: 0 0
+  @include dot-size(.25em, #ddd)

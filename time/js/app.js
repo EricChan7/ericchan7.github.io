@@ -9904,8 +9904,11 @@ return jQuery;
       this.$second = $('.second', this.$clock);
       this.$face = $('.face', this.$clock);
       this.$brand = $('.brand', this.$face);
+      this.$dHour = $('.d-hour', this.$brand);
+      this.$dMinute = $('.d-minute', this.$brand);
+      this.$semicolon = $('.semicolon', this.brand);
       $dot = $('<div>').addClass('dot');
-      r = this.$face.width() / 2 - 16;
+      r = this.$face.width() / 2 - 20;
       for (i in syms) {
         s = syms[i];
         $('<span>').text(s).css({
@@ -9974,18 +9977,21 @@ return jQuery;
         Clock.updateHand(self.$second, s / 60);
         Clock.updateHand(self.$minute, m / 60);
         Clock.updateHand(self.$hour, h / 12);
+        self.$dHour.text(padZero(now.getHours()));
+        self.$dMinute.text(padZero(now.getMinutes()));
         if (s === 0) {
-          Clock.colorHand(self.$clock);
-        }
-        if (self.am) {
-          return self.$brand.text('AM');
-        } else {
-          return self.$brand.text((padZero(now.getHours())) + ":" + (padZero(now.getMinutes())));
+          return Clock.colorHand(self.$clock);
         }
       };
       setInterval(function() {
         return updateClock();
       }, 1000);
+      this.$semicolon.velocity({
+        opacity: 0
+      }, {
+        loop: true,
+        duration: 500
+      });
       updateClock();
       return this.$clock.show();
     };

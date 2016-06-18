@@ -25,9 +25,12 @@ class Clock
     @$second = $ '.second', @$clock
     @$face = $ '.face', @$clock
     @$brand = $ '.brand', @$face
+    @$dHour = $ '.d-hour', @$brand
+    @$dMinute = $ '.d-minute', @$brand
+    @$semicolon = $ '.semicolon', @brand
     $dot = $('<div>').addClass 'dot'
 
-    r = @$face.width() / 2 - 16
+    r = @$face.width() / 2 - 20
     for i, s of syms
       $('<span>').text s
         .css
@@ -78,18 +81,19 @@ class Clock
       Clock.updateHand self.$second, s/60
       Clock.updateHand self.$minute, m/60
       Clock.updateHand self.$hour, h/12
+      self.$dHour.text padZero now.getHours()
+      self.$dMinute.text padZero now.getMinutes()
 
       if s == 0
         Clock.colorHand self.$clock
 
-      if self.am
-        self.$brand.text 'AM'
-      else
-        self.$brand.text "#{padZero now.getHours()}:#{padZero now.getMinutes()}"
-
     setInterval ->
       updateClock()
     , 1000
+
+    @$semicolon.velocity
+      opacity: 0
+    , loop: true, duration: 500
 
     updateClock()
     @$clock.show()
