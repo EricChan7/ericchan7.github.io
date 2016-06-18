@@ -34,8 +34,8 @@ class Clock
     for i, s of syms
       $('<span>').text s
         .css
-          left: (r + 8) + r * Math.sin(i*Math.PI/6)
-          top: (r + 8) - r * Math.cos(i*Math.PI/6)
+          left: "#{(r + 8) + r * Math.sin(i*Math.PI/6)}px"
+          top: "#{(r + 8) - r * Math.cos(i*Math.PI/6)}px"
         .appendTo @$face
 
     $dot.clone().appendTo @$hour for [1..3]
