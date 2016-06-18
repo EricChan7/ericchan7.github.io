@@ -41,6 +41,7 @@ class Clock
     $dot.clone().appendTo @$hour for [1..3]
     $dot.clone().appendTo @$minute for [1..5]
     $dot.clone().appendTo @$second for [1..7]
+    @$clock.show()
 
   @colorHand: ($elem) ->
     $.each $('.dot', $elem), (i, v) ->
@@ -96,6 +97,5 @@ class Clock
     , loop: true, duration: 500
 
     updateClock()
-    @$clock.show()
 
 module.exports = Clock
