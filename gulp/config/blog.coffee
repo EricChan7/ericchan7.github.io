@@ -2,7 +2,7 @@ src = './src/blog'
 dest = './blog'
 
 module.exports =
-  tasks: ['browserify', 'style', 'page']
+  tasks: ['browserify', 'style', 'page', 'font']
 
   browserify:
     script: 'react'

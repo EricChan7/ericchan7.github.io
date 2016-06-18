@@ -1,7 +1,26 @@
 
+// @font-face
+//   font-family: ProgBot
+//   src: url(../font/prog-bot.regular.ttf)
+
+@font-face
+  font-family: RepetitionScrolling
+  src: url(../font/repetition-scrolling.regular.ttf)
+
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script)
+
+@mixin dot-size($size, $color)
+  .dot
+    width: $size
+    height: $size
+    margin: 1em - $size
+    background-color: $color
+
 body
-  background-color: black
+  font-family: 'Dancing Script', RepetitionScrolling, cursive, sans-serif
   font-size: 16px
+  background-color: black
+  background-image: url(../image/0.jpg)
 
 #clock
   width: 100%
@@ -17,7 +36,8 @@ body
     width: 15em
     height: 15em
     border-radius: 15em
-    background-color: #222
+    background-color: rgba(#111, .85)
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 
     span
       position: absolute
@@ -26,41 +46,45 @@ body
       text-align: center
       color: white
 
+    .heart
+      width: 2em
+      height: 2em
+      background-color: #000
+      border-radius: 1em
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
+    .brand
+      color: #FFC107
+      font-size: 1.5em
+      position: absolute
+      top: 68%
+      text-align: center
+      width: 100%
+      letter-spacing: 2px
+
   .hour
     position: absolute
     left: 50%
     top: 50%
     transform-origin: 0 0
-
-    .dot
-      width: .7em
-      height: .7em
-      margin: .3em
-      background-color: #666
+    @include dot-size(.7em, #666)
 
   .minute
     position: absolute
     left: 50%
     top: 50%
     transform-origin: 0 0
-
-    .dot
-      width: .5em
-      height: .5em
-      margin: .5em
-      background-color: #999
+    @include dot-size(.5em, #999)
 
   .second
     position: absolute
     left: 50%
     top: 50%
     transform-origin: 0 0
-
-    .dot
-      width: .25em
-      height: .25em
-      margin: .75em
-      background-color: #ddd
+    @include dot-size(.25em, #ddd)
 
 .dot
   display: block

@@ -2,7 +2,7 @@ src = './src/time'
 dest = './time'
 
 module.exports =
-  tasks: ['browserify', 'style', 'page']
+  tasks: ['browserify', 'style', 'page', 'image', 'font']
 
   browserify:
     script: 'coffee'
@@ -20,6 +20,14 @@ module.exports =
   page:
     src: "#{src}/*.html"
     dest: "#{dest}"
+
+  image:
+    src: "#{src}/image/*"
+    dest: "#{dest}/image"
+
+  font:
+    src: "#{src}/font/*"
+    dest: "#{dest}/font"
 
   browserSync:
     serve: "#{dest}"
