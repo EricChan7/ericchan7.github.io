@@ -50,7 +50,7 @@ class Image extends React.Component {
   }
 
   setStyle(url_base, isShow, widthRatio, heightRatio) {
-    var a = widthRatio >= 1,
+    let a = widthRatio >= 1,
     b = heightRatio >= 1,
     c = widthRatio >= heightRatio
 
