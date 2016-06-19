@@ -8,5 +8,5 @@ module.exports = (gulp, $, config) ->
       port: 8080
 
     for k, v of config.watch
-      console.log "Watching #{k}..."
+      console.log "Watching #{k}... 👁"
       gulp.watch config.watch[k], [k, browserSync.reload]

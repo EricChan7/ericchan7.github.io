@@ -20,8 +20,10 @@
     "url": "https://github.com/EricChan7/SoundoFate/issues"
   },
   "homepage": "https://github.com/EricChan7/SoundoFate",
+  "browser": {},
   "dependencies": {
     "font-awesome": "^4.5.0",
+    "gulp-clean": "^0.3.2",
     "jquery": "^2.1.4",
     "material-ui": "^0.14.4",
     "material-ui-sass": "^0.7.5",
@@ -34,8 +36,7 @@
     "socket.io": "^1.4.5",
     "socket.io-p2p-server": "^1.2.0",
     "underscore": "^1.8.3",
-    "utf-8-validate": "^1.2.1",
-    "velocity-react": "^1.1.5"
+    "utf-8-validate": "^1.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.8",

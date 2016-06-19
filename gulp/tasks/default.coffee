@@ -1,6 +1,6 @@
 
 module.exports = (gulp, $, config) ->
-  gulp.task 'build', (cb) ->
+  gulp.task 'build', ['clean'], (cb) ->
     $.sequence config.tasks, cb
 
   gulp.task 'default', ['build'], (cb) ->

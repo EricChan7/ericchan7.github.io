@@ -1,4 +1,4 @@
-require 'velocity.min'
+require 'velocity-animate/velocity'
 
 rand = (x) ->
   Math.floor(Math.random() * x)
