@@ -1,7 +1,7 @@
 
 class getImage {
   constructor(n=1) {
-    this.url = `https://soundofate.herokuapp.com/api/girls/${n}`
+    this.url = `https://api.kinyeung.com/api/girls/${n}`
   }
 
   get list() {
