@@ -1,6 +1,6 @@
 import $ from 'jquery'
 import React from 'react'
-import RenderDom from 'react-dom'
+import { render } from 'react-dom'
 import Image from 'image'
 
 $(document).ready( () => {
@@ -16,7 +16,7 @@ $(document).ready( () => {
     }
 
     componentWillMount() {
-      setInterval(() => this.setState({ image: !this.state.image }), 3000)
+      setInterval(() => this.setState({ image: !this.state.image }), 5000)
     }
 
     render() {
@@ -33,7 +33,7 @@ $(document).ready( () => {
     }
   }
 
-  RenderDom.render(
+  render(
     <Gallery />,
     document.getElementById('showGround')
   )

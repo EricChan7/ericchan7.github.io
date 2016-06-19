@@ -1,0 +1,29 @@
+{
+  "name": "SoundOFate",
+  "description": "Webapp for dev",
+  "main": "index.html",
+  "authors": [
+    "KYChan"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "soundofate",
+    "sound",
+    "of",
+    "fate",
+    "song",
+    "lyric",
+    "sheet"
+  ],
+  "homepage": "https://github.com/EricChan7/ericchan7.github.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "^3.5.2"
+  }
+}

@@ -8,7 +8,7 @@ class getImage {
     return new Promise((resolve, reject) => {
       $.get(this.url)
         .done((data) => resolve(data))
-        .fail(() => reject())
+        .fail((e) => reject(`Connection error, ${e}`))
     })
   }
 

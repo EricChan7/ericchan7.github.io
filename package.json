@@ -8,7 +8,7 @@
     "start": "gulp",
     "predeploy": "npm install",
     "deploy": "NODE_ENV=production gulp build",
-    "postdeploy": "git add . && git commit -am 'commit for production' && git push"
+    "postdeploy": "git add . && git commit --allow-empty -am 'commit for production' && git push"
   },
   "repository": {
     "type": "git",
