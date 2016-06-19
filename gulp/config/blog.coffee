@@ -23,11 +23,11 @@ module.exports =
   browserSync:
     serve: "#{dest}"
 
-  watch:
-    css: "#{src}/css/**/**"
-    js: "#{src}/js/**/**"
-    html: "#{src}/*.html"
-
   font:
     src: './node_modules/font-awesome/fonts/**.*'
     dest: "#{dest}/fonts"
+
+  watch:
+    style: "#{src}/css/**/**"
+    browserify: "#{src}/js/**/**"
+    page: "#{src}/*.html"

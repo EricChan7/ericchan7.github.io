@@ -28,3 +28,8 @@ module.exports =
     css: "#{src}/*.sass"
     js: "#{src}/*.coffee"
     html: "#{src}/*.html"
+
+  watch:
+    style: "#{src}/*.sass"
+    browserify: "#{src}/*.coffee"
+    page: "#{src}/*.html"

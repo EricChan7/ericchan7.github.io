@@ -7,6 +7,6 @@ module.exports = (gulp, $, config) ->
       server: config.browserSync.serve
       port: 8080
 
-    gulp.watch config.watch.css, ['style', browserSync.reload]
-    gulp.watch config.watch.js, ['browserify', browserSync.reload]
-    gulp.watch config.watch.html, ['page', browserSync.reload]
+    for k, v of config.watch
+      console.log "Watching #{k}..."
+      gulp.watch config.watch[k], [k, browserSync.reload]

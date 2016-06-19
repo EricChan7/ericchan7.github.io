@@ -17,8 +17,8 @@ module.exports = (gulp, $, config) ->
 
     if config.script == 'coffee'
       bundler.transform coffeeify,
-      bare: false
-      header: true
+        bare: false
+        header: true
 
     if config.script == 'react'
       bundler.transform 'babelify',

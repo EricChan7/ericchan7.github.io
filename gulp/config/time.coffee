@@ -33,6 +33,6 @@ module.exports =
     serve: "#{dest}"
 
   watch:
-    css: "#{src}/css/*.sass"
-    js: "#{src}/js/*.coffee"
-    html: "#{src}/*.html"
+    style: "#{src}/css/*.sass"
+    browserify: "#{src}/js/*.coffee"
+    page: "#{src}/*.html"

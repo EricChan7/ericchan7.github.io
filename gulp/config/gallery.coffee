@@ -25,6 +25,6 @@ module.exports =
     serve: "#{dest}"
 
   watch:
-    css: "#{src}/css/*.sass"
-    js: "#{src}/js/*.jsx"
-    html: "#{src}/*.html"
+    style: "#{src}/css/*.sass"
+    browserify: "#{src}/js/**/*.jsx"
+    page: "#{src}/*.html"

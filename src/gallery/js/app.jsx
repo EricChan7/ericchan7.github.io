@@ -4,6 +4,8 @@ import RenderDom from 'react-dom'
 import Image from 'image'
 
 $(document).ready( () => {
+  window.$ = $
+
   class Gallery extends React.Component {
     constructor() {
       super()
@@ -14,13 +16,7 @@ $(document).ready( () => {
     }
 
     componentWillMount() {
-      setInterval(() => {
-        this.setState(() => {
-          return {
-            image: !this.state.image
-          }
-        })
-      }, 3000)
+      setInterval(() => this.setState({ image: !this.state.image }), 3000)
     }
 
     render() {
