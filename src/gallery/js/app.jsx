@@ -51,7 +51,7 @@ $(document).ready( () => {
         setInterval(() => {
           this.setState({ showImage: !this.state.showImage })
           if (this.images.length <= 1) {
-            this.fetchImage()
+            this.fetchImage().then(() => console.log('Fetch Done.'), (e) => console.log(e))
           }
         }, 5000)
       }, (e) => console.log(e))
