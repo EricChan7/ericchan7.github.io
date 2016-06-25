@@ -7,8 +7,7 @@ class Image extends React.Component {
   constructor(props) {
     super(props)
 
-    this.getImage = new GetImage(20)
-    this.fetching = false
+    this.getImage = new GetImage()
     this.className = 'container'
     this.in = ['bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp',
               'fadeIn', 'fadeInDown', 'fadeInDownBig', 'fadeInLeft', 'fadeInLeftBig',
@@ -26,7 +25,6 @@ class Image extends React.Component {
               'slideOutRight', 'slideOutUp']
 
     this.state = {
-      images: [],
       image: {
         url_base: 'https://lh3.googleusercontent.com/-EMZYc1aMxEI/Vj3EnHOokuI/AAAAAAAGHjs/GJN2jjYaUPk/',
         width: 2048,
@@ -37,31 +35,6 @@ class Image extends React.Component {
       },
       className: `${this.className} animated ${this.props.state ? this.selectAnimation(this.in) : this.selectAnimation(this.out)}`
     }
-  }
-
-  fetchImage() {
-    return new Promise((resolve, reject) => {
-      if (this.fetching) {
-        reject('Reject, fetching exists.')
-      } else {
-        this.fetching = true
-
-        this.getImage.list.then((data) => {
-          this.fetching = false
-          this.setState({ images: data })
-          resolve()
-        }, (e) => {
-          this.fetching = false
-          reject(`Reject. ${e}`)
-        })
-      }
-    })
-  }
-
-  updateImage(nextPropsState) {
-    this.setState({
-      image: nextPropsState ? this.state.image : this.state.images.pop()
-    })
   }
 
   setStyle(url_base, widthRatio, heightRatio) {
@@ -84,21 +57,15 @@ class Image extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.props = nextProps
-
     this.setState({
-      className: `${this.className} animated ${this.props.state ? this.selectAnimation(this.in) : this.selectAnimation(this.out)}`
+      className: `${this.className} animated ${nextProps.state ? this.selectAnimation(this.in) : this.selectAnimation(this.out)}`
     })
   }
 
   componentDidMount() {
-    this.fetchImage().then(() => this.updateImage(this.props.state), (e) => console.log(e))
-
     $(ReactDOM.findDOMNode(this)).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', () => {
-      if (this.state.images.length <= 1) {
-        this.fetchImage().then(() => this.updateImage(this.props.state), (e) => console.log(e))
-      } else {
-        this.updateImage(this.props.state)
+      if (!this.props.state) {
+        this.setState({ image: this.props.image })
       }
     })
   }
