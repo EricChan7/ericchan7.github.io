@@ -25,26 +25,29 @@ class Image extends React.Component {
               'slideOutRight', 'slideOutUp']
 
     this.state = {
-      image: {
-        url_base: 'https://lh3.googleusercontent.com/-EMZYc1aMxEI/Vj3EnHOokuI/AAAAAAAGHjs/GJN2jjYaUPk/',
-        width: 2048,
-        height: 1365,
-        album: '6214330142787629665',
-        photo: '6214339237075522274',
-        md5: '9383188b9cfc504a0c7a041854b9d026'
-      },
+      image: {},
       className: `${this.className} animated ${this.props.state ? this.selectAnimation(this.in) : this.selectAnimation(this.out)}`
     }
   }
 
-  setStyle(url_base, widthRatio, heightRatio) {
-    let a = widthRatio >= 1,
-    b = heightRatio >= 1,
-    c = widthRatio >= heightRatio
+  setStyle(image) {
+    if (image.url_base == undefined) {
+      return {
+        color: 'white',
+        top: '50%'
+      }
+    } else {
+      let $window = $(window),
+        a = image.width >= $window.width(),
+        b = image.height >= $window.height(),
+        c = ( image.width / image.height ) >= ( $window.width() / $window.height() )
 
-    return {
-      backgroundImage: this.getImage.showURL(url_base),
-      backgroundSize: a && c || a && !b || !b && c ? '100% auto' : 'auto 100%'
+      return {
+        backgroundImage: GetImage.showURL(image.url_base),
+        backgroundSize: a && c || a && !b || !b && c ? '100% auto' : 'auto 100%',
+        color: 'rgba(0,0,0,0)',
+        top: '0'
+      }
     }
   }
 
@@ -64,9 +67,8 @@ class Image extends React.Component {
 
   componentDidMount() {
     $(ReactDOM.findDOMNode(this)).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', () => {
-      if (!this.props.state) {
-        this.setState({ image: this.props.image })
-      }
+      if (!this.props.state) this.setState({ image: this.props.image })
+      $(ReactDOM.findDOMNode(this)).text(this.state.image.url_base == undefined ? 'Initializing...' : '')
     })
   }
 
@@ -74,15 +76,16 @@ class Image extends React.Component {
     return (
       <div
         className={this.state.className}
-        style={this.setStyle(
-          this.state.image.url_base,
-          this.state.image.width / $(window).width(),
-          this.state.image.height / $(window).height()
-        )}
+        style={this.setStyle(this.state.image)}
       >
       </div>
     )
   }
+}
+
+Image.propTypes = {
+  image: React.PropTypes.object.isRequired,
+  state: React.PropTypes.bool.isRequired
 }
 
 export default Image
