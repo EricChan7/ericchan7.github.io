@@ -3,11 +3,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import GetImage from 'lib/getImage'
 
-class Image extends React.Component {
+class Frame extends React.Component {
   constructor(props) {
     super(props)
 
-    this.getImage = new GetImage()
     this.className = 'container'
     this.in = ['bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp',
               'fadeIn', 'fadeInDown', 'fadeInDownBig', 'fadeInLeft', 'fadeInLeftBig',
@@ -83,9 +82,9 @@ class Image extends React.Component {
   }
 }
 
-Image.propTypes = {
+Frame.propTypes = {
   image: React.PropTypes.object.isRequired,
   state: React.PropTypes.bool.isRequired
 }
 
-export default Image
+export default Frame

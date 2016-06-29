@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import React from 'react'
 import { render } from 'react-dom'
-import Gallery from 'gallery'
+import Gallery from 'module/gallery'
 
 $(document).ready( () => {
   window.$ = $
