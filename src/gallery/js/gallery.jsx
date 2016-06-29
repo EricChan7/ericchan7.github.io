@@ -12,9 +12,12 @@ class Gallery extends React.Component {
   }
 
   componentWillMount() {
-    setInterval(() => {
+    this.getImage.list().then(() => {
+      setInterval(() => {
+        this.setState({ showImage: !this.state.showImage })
+      }, 5000)
       this.setState({ showImage: !this.state.showImage })
-    }, 5000)
+    }, (e) => console.log(e))
   }
 
   render() {
