@@ -2,7 +2,7 @@ src = './src/timex'
 dest = './timex'
 
 module.exports =
-  tasks: ['browserify', 'style', 'page']
+  tasks: ['browserify', 'style', 'page', 'image']
 
   browserify:
     script: 'react'
@@ -20,6 +20,10 @@ module.exports =
   page:
     src: "#{src}/*.html"
     dest: "#{dest}"
+
+  image:
+    src: "#{src}/image/*"
+    dest: "#{dest}/image"
 
   browserSync:
     serve: "#{dest}"

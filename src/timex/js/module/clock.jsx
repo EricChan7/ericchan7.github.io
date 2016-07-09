@@ -1,5 +1,6 @@
 import React from 'react'
-import Hand from 'module/hand'
+import Hands from 'module/hands'
+import Face from 'module/face'
 
 class Clock extends React.Component {
   constructor() {
@@ -8,7 +9,10 @@ class Clock extends React.Component {
 
   render() {
     return (
-      <Hand size={5} part={"hour"} />
+      <div>
+        <Face />
+        <Hands />
+      </div>
     )
   }
 }

@@ -7,16 +7,21 @@ class Hand extends React.Component {
   }
 
   dots(size) {
-    let elem = []
-    for (var i = size; i >= 0; i--) {
-      elem.push(<Dot key={i} />)
+    let elems = []
+    for (var i = size - 1; i >= 0; i--) {
+      elems.push(<Dot key={i} />)
     }
-    return elem
+    return elems
   }
 
   render() {
     return (
-      <div className={this.props.part + ' dots'}>
+      <div
+        className={`${this.props.part} dots`}
+        style={{
+          transform: `rotateZ(${this.props.deg}deg) translate(-50%, -100%)`
+        }}
+      >
         { this.dots(this.props.size) }
       </div>
     )
@@ -25,7 +30,8 @@ class Hand extends React.Component {
 
 Hand.propTypes = {
   size: React.PropTypes.number.isRequired,
-  part: React.PropTypes.string.isRequired
+  part: React.PropTypes.string.isRequired,
+  deg: React.PropTypes.number.isRequired
 }
 
 export default Hand
