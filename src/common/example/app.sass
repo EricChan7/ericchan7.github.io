@@ -1,0 +1,52 @@
+@import 'snippets'
+
+body
+  background-color: $grey
+  font-size: 16px
+
+#container
+  max-width: $max-width
+  margin: auto
+
+@import 'panel/panel'
+@import 'grid/grid'
+@import 'divider/divider'
+@import 'button/button'
+
+.example
+  .box
+    width: 100%
+    height: 4em
+    display: block
+    margin: .5em 0
+    text-align: center
+    line-height: 4em
+
+  .white
+    background-color: $white
+    color: invert($white)
+
+  .black
+    background-color: $black
+    color: $white
+
+  .default
+    background-color: $default
+    color: $white
+
+  .primary
+    background-color: $primary
+    color: $white
+
+  .secondary
+    background-color: $secondary
+    color: $white
+
+  .danger
+    background-color: $danger
+    color: $white
+
+  .warning
+    background-color: $warning
+    color: $white
+

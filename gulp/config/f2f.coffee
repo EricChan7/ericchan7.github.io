@@ -5,13 +5,13 @@ module.exports =
   browserify:
     entries: ["#{src}/js/app.coffee"]
     dest: "#{dest}/js"
-    paths: ["#{src}/js", './node_modules']
+    paths: ["#{src}/js", './src/**/js', './node_modules']
     extensions: ['.coffee', '.js']
 
   style:
     src: "#{src}/css/app.sass"
     dest: "#{dest}/css"
-    paths: ["#{src}/css", './node_modules']
+    paths: ["#{src}/css", './src/**/css', './node_modules']
 
   page:
     src: "#{src}/*.html"

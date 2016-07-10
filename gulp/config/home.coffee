@@ -8,13 +8,13 @@ module.exports =
     script: 'coffee'
     entries: ["#{src}/app.coffee"]
     dest: "#{dest}"
-    paths: ["#{src}/js", './node_modules']
+    paths: ["#{src}/js", './src/**/js', './node_modules']
     extensions: ['.coffee', '.js']
 
   style:
     src: "#{src}/app.sass"
     dest: "#{dest}"
-    paths: ["#{src}/css", './node_modules']
+    paths: ["#{src}/css", './src/**/css', './node_modules']
     lib: ['./node_modules/normalize.css/normalize.css']
 
   page:
@@ -23,11 +23,6 @@ module.exports =
 
   browserSync:
     serve: "#{dest}"
-
-  watch:
-    css: "#{src}/*.sass"
-    js: "#{src}/*.coffee"
-    html: "#{src}/*.html"
 
   watch:
     style: "#{src}/*.sass"

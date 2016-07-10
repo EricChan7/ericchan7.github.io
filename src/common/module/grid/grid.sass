@@ -1,0 +1,30 @@
+@mixin gridSize($prefix, $base, $query)
+  @media screen and #{$query}
+    @for $i from 1 through $base
+      .#{$prefix}-#{$i}
+        width: calc(#{$i/$base*100%} - #{$gutter*2})
+
+        &.collapse
+          width: #{$i/$base*100%}
+
+.row
+  display: block
+  width: 100%
+  @include clearfix()
+  @include gridSize('large', 12, $large-breakpoint)
+  @include gridSize('medium', 8, $medium-breakpoint)
+  @include gridSize('small', 6, $small-breakpoint)
+
+  &.expanded
+    width: 100vw
+
+  .columns, .column
+    display: block
+    float: left
+    margin-left: $gutter
+    margin-right: $gutter
+    box-sizing: border-box
+
+    &.collapse
+      margin-left: 0
+      margin-right: 0
