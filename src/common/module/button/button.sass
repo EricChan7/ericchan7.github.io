@@ -1,16 +1,21 @@
 button, .button
+  display: inline-block
   position: relative
   background-color: $default
   color: $white
   border: none
-  padding: .5em 1.25em
+  padding: .5em $padding
+  margin: .25em
   outline: 0
   cursor: pointer
+  text-decoration: none
+  letter-spacing: .5px
   transition: background-color 200ms
 
   &:hover
     background-color: darken($default, 10%)
 
+  // Ripple Effect
   &:before
     content: ''
     display: block
@@ -20,9 +25,80 @@ button, .button
     top: 0
     left: 0
     background-color: rgba(white, 0)
-    clip-path: circle(3px at center)
-    transition: clip-path 500ms, -webkit-clip-path 500ms
+    clip-path: circle(0 at center)
+    transition: clip-path 750ms, -webkit-clip-path 750ms
 
   &.ripple:before
     background-color: rgba(white, .1)
-    clip-path: circle(100% at center)
+    clip-path: circle(75% at center)
+
+  // Color
+  &.primary
+    background-color: $primary
+    &:hover
+      background-color: lighten($primary, 10%)
+
+  &.secondary
+    background-color: $secondary
+    &:hover
+      background-color: darken($secondary, 10%)
+
+  &.warning
+    background-color: $warning
+    &:hover
+      background-color: lighten($warning, 10%)
+
+  &.danger
+    background-color: $danger
+    &:hover
+      background-color: darken($danger, 10%)
+
+
+  // Rounded Button
+  &.rounded
+    border-radius: 2em
+
+  // Outlined Button
+  &.outlined
+    background-color: transparent
+    border: 1px solid $default
+    color: $default
+    padding: 0.4375em $padding
+
+    &:hover
+      background-color: $default
+      color: $white
+
+    // Outlined Button Color
+    &.primary
+      border: 1px solid $primary
+      color: $primary
+
+      &:hover
+        background-color: $primary
+        color: $white
+
+    &.secondary
+      border: 1px solid $secondary
+      color: $secondary
+
+      &:hover
+        background-color: $secondary
+        color: $white
+
+    &.warning
+      border: 1px solid $warning
+      color: $warning
+
+      &:hover
+        background-color: $warning
+        color: $white
+
+    &.danger
+      border: 1px solid $danger
+      color: $danger
+
+      &:hover
+        background-color: $primary
+        color: $white
+

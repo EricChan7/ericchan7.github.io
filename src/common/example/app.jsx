@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import React from 'react'
 import ReactDom from 'react-dom'
 import Styleguide from 'styleguide'
@@ -10,7 +9,6 @@ class App extends React.Component {
   constructor() {
     super()
 
-    window.$ = $
     this.lists = [<Color />, <Button />]
   }
 
@@ -36,10 +34,10 @@ class App extends React.Component {
 
     return (
       <div className="row">
-        <div className="large-4 columns">
+        <div className="large-3 columns">
           Placeholder...
         </div>
-        <div className="large-8 columns">
+        <div className="large-9 columns">
           { result }
         </div>
       </div>

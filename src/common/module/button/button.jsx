@@ -1,14 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 class Button extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
   }
 
-  whichTransitionEvent(){
-    let t,
-      el = document.createElement('fakeelement')
+  whichTransitionEvent (){
+    let t, el = document.createElement('fakeelement')
 
     var transitions = {
       'transition'      : 'transitionend',
@@ -34,33 +32,52 @@ class Button extends React.Component {
     })
   }
 
-  componentWillUnmount () {
-    // console.log('unmounted')
-  }
-
   render () {
     return (
-      <button ref="button">
+      <a
+        ref="button"
+        className={ (this.props.className || '') + ' button' }
+        href={ this.props.link }
+      >
         { this.props.children || this.props.text }
-      </button>
+      </a>
     )
   }
 }
 
 Button.styleguide = {
-  title: 'Button',
-  description: 'I am a Button!',
+  title: 'Button / Link',
+  description: 'A button/link with style and ripple effect.',
   example: (
-    <Button text="Default" />
+    <div className="example">
+      <Button text="Default" link="#" />
+      <Button text="Rounded Primary" className="rounded primary"/>
+      <Button className="danger" >
+        Danger
+      </Button>
+      <Button text="Outlined Warning" className="outlined warning" />
+    </div>
   ),
-  code: `<Button text="Default" />
+  code: `<Button text="Default" link="#" />
+    <Button text="Rounded Primary" className="rounded primary"/>
+    <Button className="danger" >
+      Danger
+    </Button>
+    <Button text="Outlined Warning" className="outlined warning" />
   `,
   className: 'some class name'
 }
 
 Button.propTypes = {
   children: React.PropTypes.node,
-  text: React.PropTypes.node
+  text: React.PropTypes.node,
+  link: React.PropTypes.string,
+  className: React.PropTypes.string
+}
+
+Button.defaultProps = {
+  className: '',
+  link: '#'
 }
 
 export default Button

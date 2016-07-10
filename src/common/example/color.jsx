@@ -12,7 +12,7 @@ Color.styleguide = {
   title: 'Color',
   description: 'A set of color used in all page.',
   example: (
-    <div className="example">
+    <div className="example-color">
       <div className="box black">Black</div>
       <div className="box white">White</div>
       <div className="box default">Default</div>

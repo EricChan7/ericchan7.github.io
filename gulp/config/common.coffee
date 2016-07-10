@@ -24,7 +24,10 @@ module.exports =
       './node_modules',
       './bower_components'
     ]
-    lib: ['./node_modules/normalize.css/normalize.css']
+    lib: [
+      './src/common/module/font.css'
+      './node_modules/normalize.css/normalize.css'
+    ]
 
   browserSync:
     serve: dest
