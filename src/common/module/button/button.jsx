@@ -36,8 +36,9 @@ class Button extends React.Component {
     return (
       <a
         ref="button"
-        className={ (this.props.className || '') + ' button' }
+        className={ this.props.className + ' button' }
         href={ this.props.link }
+        onClick={ this.props.onClick }
       >
         { this.props.children || this.props.text }
       </a>
@@ -45,9 +46,22 @@ class Button extends React.Component {
   }
 }
 
+Button.propTypes = {
+  children: React.PropTypes.node,
+  text: React.PropTypes.node,
+  link: React.PropTypes.string,
+  className: React.PropTypes.string,
+  onClick: React.PropTypes.func
+}
+
+Button.defaultProps = {
+  className: '',
+  link: '#'
+}
+
 Button.styleguide = {
-  title: 'Button / Link',
-  description: 'A button/link with style and ripple effect.',
+  title: 'Button',
+  description: 'A button / link with style and ripple effect.',
   example: (
     <div className="example">
       <Button text="Default" link="#" />
@@ -63,21 +77,7 @@ Button.styleguide = {
     <Button className="danger" >
       Danger
     </Button>
-    <Button text="Outlined Warning" className="outlined warning" />
-  `,
-  className: 'some class name'
-}
-
-Button.propTypes = {
-  children: React.PropTypes.node,
-  text: React.PropTypes.node,
-  link: React.PropTypes.string,
-  className: React.PropTypes.string
-}
-
-Button.defaultProps = {
-  className: '',
-  link: '#'
+    <Button text="Outlined Warning" className="outlined warning" />`
 }
 
 export default Button

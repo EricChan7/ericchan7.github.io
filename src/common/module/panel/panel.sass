@@ -4,10 +4,10 @@
   padding: $padding
   box-sizing: border-box
 
-  .panel-header
-    font-size: 1.5em
-    color: $white
-    background-color: $secondary
-    margin: (-$padding) (-$padding) $padding
-    padding: .5em $padding
+  @for $i from 1 through 5
+    &.shadow-#{$i}
+      @extend %shadow-#{$i}
+
+  @import 'panel-header'
+  @import 'panel-footer'
 

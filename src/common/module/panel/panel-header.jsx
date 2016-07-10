@@ -4,7 +4,7 @@ class PanelHeader extends React.Component {
   render () {
     return (
       <div
-        className="panel-header"
+        className={ (this.props.className || '') + ' panel-header' }
       >
         { this.props.title }
       </div>
@@ -13,7 +13,8 @@ class PanelHeader extends React.Component {
 }
 
 PanelHeader.propTypes = {
-  title: React.PropTypes.string
+  title: React.PropTypes.string,
+  className: React.PropTypes.string
 }
 
 export default PanelHeader

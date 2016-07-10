@@ -1,0 +1,15 @@
+@mixin titleColor($target, $color)
+  &.#{$target}
+    background-color: $color
+
+.panel-header
+  font-size: 1.5em
+  color: $white
+  background-color: $default
+  margin: (-$padding) (-$padding) $padding
+  padding: .5em $padding
+
+  @include titleColor('primary', $primary)
+  @include titleColor('secondary', $secondary)
+  @include titleColor('warning', $warning)
+  @include titleColor('danger', $danger)

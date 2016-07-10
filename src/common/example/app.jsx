@@ -4,12 +4,19 @@ import Styleguide from 'styleguide'
 
 import Color from 'color'
 import Button from 'button/button'
+import Panel from 'panel/panel'
+import Modal from 'modal/modal'
 
 class App extends React.Component {
   constructor() {
     super()
 
-    this.lists = [<Color />, <Button />]
+    this.lists = [
+      <Color />,
+      <Button />,
+      <Panel />,
+      <Modal />
+    ]
   }
 
   render() {

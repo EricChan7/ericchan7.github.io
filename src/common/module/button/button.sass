@@ -1,3 +1,18 @@
+@mixin buttonColor($target, $color, $hoverColor)
+  &.#{$target}
+    background-color: $color
+    &:hover
+      background-color: $hoverColor
+
+@mixin outlinedColor($target, $color, $hoverColor)
+  &.#{$target}
+    border: 1px solid $color
+    color: $color
+
+    &:hover
+      background-color: $color
+      color: $hoverColor
+
 button, .button
   display: inline-block
   position: relative
@@ -33,26 +48,10 @@ button, .button
     clip-path: circle(75% at center)
 
   // Color
-  &.primary
-    background-color: $primary
-    &:hover
-      background-color: lighten($primary, 10%)
-
-  &.secondary
-    background-color: $secondary
-    &:hover
-      background-color: darken($secondary, 10%)
-
-  &.warning
-    background-color: $warning
-    &:hover
-      background-color: lighten($warning, 10%)
-
-  &.danger
-    background-color: $danger
-    &:hover
-      background-color: darken($danger, 10%)
-
+  @include buttonColor('primary', $primary, lighten($primary, 10%))
+  @include buttonColor('secondary', $secondary, darken($secondary, 10%))
+  @include buttonColor('warning', $warning, lighten($warning, 10%))
+  @include buttonColor('danger', $danger, darken($danger, 10%))
 
   // Rounded Button
   &.rounded
@@ -61,44 +60,16 @@ button, .button
   // Outlined Button
   &.outlined
     background-color: transparent
+    padding: 0.4375em $padding
     border: 1px solid $default
     color: $default
-    padding: 0.4375em $padding
 
     &:hover
       background-color: $default
       color: $white
 
     // Outlined Button Color
-    &.primary
-      border: 1px solid $primary
-      color: $primary
-
-      &:hover
-        background-color: $primary
-        color: $white
-
-    &.secondary
-      border: 1px solid $secondary
-      color: $secondary
-
-      &:hover
-        background-color: $secondary
-        color: $white
-
-    &.warning
-      border: 1px solid $warning
-      color: $warning
-
-      &:hover
-        background-color: $warning
-        color: $white
-
-    &.danger
-      border: 1px solid $danger
-      color: $danger
-
-      &:hover
-        background-color: $primary
-        color: $white
-
+    @include outlinedColor('primary', $primary, $white)
+    @include outlinedColor('secondary', $secondary, $white)
+    @include outlinedColor('warning', $warning, $white)
+    @include outlinedColor('danger', $danger, $white)

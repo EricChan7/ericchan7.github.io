@@ -28,8 +28,7 @@ Color.styleguide = {
     <div class="box primary">Primary</div>
     <div class="box secondary">Secondary</div>
     <div class="box danger">Danger</div>
-    <div class="box warning">Warning</div>`,
-  className: 'some class name'
+    <div class="box warning">Warning</div>`
 }
 
 export default Color

@@ -2,17 +2,10 @@
 
 import React from 'react'
 import Panel from 'panel/panel'
-import PanelHeader from 'panel/panel-header'
 
 class Styleguide extends React.Component {
   constructor (props) {
     super(props)
-  }
-
-  exampleHtml() {
-    return {
-      __html: this.props.code
-    }
   }
 
   sanitizeHtml () {
@@ -23,8 +16,10 @@ class Styleguide extends React.Component {
 
   render () {
     return (
-      <Panel>
-        <PanelHeader title={this.props.title} />
+      <Panel
+        className="shadow-2"
+        title={this.props.title}
+      >
         { this.props.description }
         <hr />
         { this.props.example }
