@@ -33,7 +33,7 @@ class Panel extends React.Component {
   render () {
     return (
       <div
-        className={ (this.props.className || '') + ' panel' }
+        className={ this.props.className + ' panel' }
       >
         { this.renderHeader() }
         { this.props.children }
@@ -50,6 +50,10 @@ Panel.propTypes = {
   footerClass: React.PropTypes.string,
   children: React.PropTypes.node,
   className: React.PropTypes.string
+}
+
+Panel.defaultProps = {
+  className: ''
 }
 
 Panel.styleguide = {

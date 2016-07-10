@@ -6,6 +6,18 @@ class Modal extends React.Component {
     super(props)
   }
 
+  renderButton () {
+    if (this.props.buttonText !== '') {
+      return (
+        <Button
+          text={ this.props.buttonText }
+          className={ this.props.buttonClass }
+          onClick={ this.buttonClick.bind(this) }
+        />
+      )
+    }
+  }
+
   buttonClick (evt) {
     evt.preventDefault()
     this.modalOpen()
@@ -36,16 +48,12 @@ class Modal extends React.Component {
   render () {
     return (
       <div
-        className="modal-group"
+        className="modal"
       >
-        <Button
-          text={ this.props.buttonText }
-          className={ this.props.buttonClass }
-          onClick={ this.buttonClick.bind(this) }
-        />
+        { this.renderButton() }
         <div
           ref="modal"
-          className="modal"
+          className="modal-overlay"
         >
           <div
             ref="modalContent"
@@ -69,11 +77,13 @@ class Modal extends React.Component {
 Modal.propTypes = {
   buttonText: React.PropTypes.string,
   buttonClass: React.PropTypes.string,
-  children: React.PropTypes.element,
+  children: React.PropTypes.element.isRequired,
   size: React.PropTypes.string
 }
 
 Modal.defaultProps = {
+  buttonText: '',
+  buttonClass: '',
   size: 'large'
 }
 
@@ -84,7 +94,6 @@ Modal.styleguide = {
     <Modal
       buttonText="Click ME!"
       buttonClass="outlined secondary"
-      size="small"
     >
       <div>Some elements here...</div>
     </Modal>

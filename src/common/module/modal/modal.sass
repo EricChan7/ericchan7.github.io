@@ -1,41 +1,42 @@
 .modal
-  background-color: rgba($black, .8)
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  z-index: -1
-  opacity: 0
-  transition: opacity 250ms, z-index 250ms
+  .modal-overlay
+    background-color: rgba($black, .8)
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: -1
+    opacity: 0
+    transition: opacity 250ms, z-index 250ms
 
-  &.open
-    z-index: 9999
-    opacity: 1
+    &.open
+      z-index: 9999
+      opacity: 1
 
-  .modal-content
-    position: relative
-    display: block
-    margin: 7% auto
+    .modal-content
+      position: relative
+      display: block
+      margin: 7% auto
 
-    &.large
-      width: 80%
+      &.large
+        width: 80%
 
-    &.medium
-      width: 60%
+      &.medium
+        width: 60%
 
-    &.small
-      width: 40%
+      &.small
+        width: 40%
 
-    @media screen and #{$small-breakpoint}
-      &.large, &.medium, &.small
-        width: 100%
+      @media screen and #{$small-breakpoint}
+        &.large, &.medium, &.small
+          width: 100%
 
-    .modal-close
-      font-size: 2.5em
-      color: $white
-      position: absolute
-      right: 0
-      top: -1em
-      cursor: pointer
+      .modal-close
+        font-size: 2.5em
+        color: $white
+        position: absolute
+        right: 0
+        top: -1em
+        cursor: pointer
 

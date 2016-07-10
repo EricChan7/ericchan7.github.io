@@ -12,10 +12,10 @@ class App extends React.Component {
     super()
 
     this.lists = [
-      <Color />,
-      <Button />,
-      <Panel />,
-      <Modal />
+      Color,
+      Button,
+      Panel,
+      Modal
     ]
   }
 
@@ -27,11 +27,11 @@ class App extends React.Component {
           className="large-12 columns"
         >
           <Styleguide
-            title={ obj.type.styleguide.title }
-            description={ obj.type.styleguide.description }
-            example={ obj.type.styleguide.example }
-            code={ obj.type.styleguide.code }
-            className={ obj.type.styleguide.className }
+            title={ obj.styleguide.title }
+            description={ obj.styleguide.description }
+            example={ obj.styleguide.example }
+            code={ obj.styleguide.code }
+            className={ obj.styleguide.className }
           >
             { obj }
           </Styleguide>

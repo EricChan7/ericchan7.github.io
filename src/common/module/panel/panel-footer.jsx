@@ -4,7 +4,7 @@ class PanelFooter extends React.Component {
   render () {
     return (
       <div
-        className={ (this.props.className || '') + ' panel-footer' }
+        className={ this.props.className + ' panel-footer' }
       >
         { this.props.children }
       </div>
@@ -15,6 +15,10 @@ class PanelFooter extends React.Component {
 PanelFooter.propTypes = {
   children: React.PropTypes.node,
   className: React.PropTypes.string
+}
+
+PanelFooter.defaultProps = {
+  className: ''
 }
 
 export default PanelFooter
