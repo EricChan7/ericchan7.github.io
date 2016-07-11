@@ -4,7 +4,7 @@
       .#{$prefix}-#{$i}
         width: calc(#{$i/$base*100%} - #{$gutter*2})
 
-        &.collapse
+        .row &
           width: #{$i/$base*100%}
 
 .row
@@ -18,13 +18,13 @@
   &.expanded
     width: 100vw
 
-  .columns, .column
+  .columns
     display: block
     float: left
     margin-left: $gutter
     margin-right: $gutter
     box-sizing: border-box
 
-    &.collapse
+    & &
       margin-left: 0
       margin-right: 0

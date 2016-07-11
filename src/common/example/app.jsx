@@ -6,6 +6,8 @@ import Color from 'color'
 import Button from 'button/button'
 import Panel from 'panel/panel'
 import Modal from 'modal/modal'
+import List from 'list/list'
+import ListItem from 'list/list-item'
 
 class App extends React.Component {
   constructor() {
@@ -15,7 +17,8 @@ class App extends React.Component {
       Color,
       Button,
       Panel,
-      Modal
+      Modal,
+      List
     ]
   }
 
@@ -25,6 +28,7 @@ class App extends React.Component {
         <div
           key={ i }
           className="large-12 columns"
+          id={ obj.styleguide.title }
         >
           <Styleguide
             title={ obj.styleguide.title }
@@ -39,13 +43,33 @@ class App extends React.Component {
       )
     })
 
+    let menu = this.lists.map((obj, i) => {
+      return (
+        <ListItem
+          key={ i }
+          text={ obj.styleguide.title }
+          link={ `#${obj.styleguide.title}` }
+        />
+      )
+    })
+
     return (
       <div className="row">
         <div className="large-3 columns">
-          Placeholder...
+          <Panel
+            title="Style Guide"
+            titleClass="secondary"
+            className="shadow-3"
+          >
+            <List className="secondary">
+              { menu }
+            </List>
+          </Panel>
         </div>
         <div className="large-9 columns">
-          { result }
+          <div className="row">
+            { result }
+          </div>
         </div>
       </div>
     )

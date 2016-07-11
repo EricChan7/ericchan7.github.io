@@ -1,0 +1,33 @@
+@mixin listColor($target, $bgColor, $wColor:$white)
+  &.#{$target} .list-item.selected .button
+    background-color: $bgColor
+    color: $wColor
+
+.list
+  list-style: none
+  padding: 0
+
+  .list-item
+    .button
+      display: block
+      margin: 0
+      background-color: transparent
+      color: $black
+      transition: background-color 500ms
+
+      &:hover
+        background-color: $grey
+
+    &.selected
+      .button
+        background-color: $default
+        color: white
+
+  @include listColor('primary', $primary)
+  @include listColor('secondary', $secondary)
+  @include listColor('warning', $warning)
+  @include listColor('danger', $danger)
+
+  .panel &
+    margin-left: -$padding
+    margin-right: -$padding

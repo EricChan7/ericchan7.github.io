@@ -10,22 +10,14 @@ class Modal extends React.Component {
     this.modalOpen()
   }
 
-  addClass (node, className) {
-    node.className += ` ${className}`
-  }
-
-  removeClass (node, className) {
-    node.className = node.className.replace(` ${className}`, '')
-  }
-
   modalOpen () {
-    this.addClass(this.refs.modal, 'open')
-    this.addClass(document.body, 'modal-opened')
+    this.refs.modal.classList.add('open')
+    document.body.classList.add('modal-opened')
   }
 
   modalClose () {
-    this.removeClass(this.refs.modal, 'open')
-    this.removeClass(document.body, 'modal-opened')
+    this.refs.modal.classList.remove('open')
+    document.body.classList.remove('modal-opened')
   }
 
   componentDidMount () {

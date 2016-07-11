@@ -24,11 +24,11 @@ class Button extends React.Component {
 
   componentDidMount () {
     this.refs.button.addEventListener('click', () => {
-      this.refs.button.className += ' ripple'
+      this.refs.button.classList.add('ripple')
     })
 
     this.refs.button.addEventListener(this.whichTransitionEvent(), () => {
-      this.refs.button.className = this.refs.button.className.replace(/( ripple)/g, '')
+      this.refs.button.classList.remove('ripple')
     })
   }
 
