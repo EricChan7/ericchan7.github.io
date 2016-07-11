@@ -8,6 +8,7 @@ import Panel from 'panel/panel'
 import Modal from 'modal/modal'
 import List from 'list/list'
 import ListItem from 'list/list-item'
+import Sticky from 'sticky/sticky'
 
 class App extends React.Component {
   constructor() {
@@ -17,6 +18,7 @@ class App extends React.Component {
       Color,
       Button,
       Panel,
+      Sticky,
       Modal,
       List
     ]
@@ -56,16 +58,19 @@ class App extends React.Component {
     return (
       <div className="row">
         <div className="large-3 columns">
-          <Panel
-            title="Style Guide"
-            titleClass="secondary"
-            className="shadow-3"
-          >
-            <List className="secondary">
-              { menu }
-            </List>
-          </Panel>
+          <Sticky>
+            <Panel
+              title="Style Guide"
+              titleClass="secondary"
+              className="shadow-3"
+            >
+              <List className="secondary">
+                { menu }
+              </List>
+            </Panel>
+          </Sticky>
         </div>
+
         <div className="large-9 columns">
           <div className="row">
             { result }
