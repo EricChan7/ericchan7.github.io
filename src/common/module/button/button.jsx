@@ -56,7 +56,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   className: '',
-  link: '#'
+  link: ''
 }
 
 Button.styleguide = {
@@ -65,7 +65,11 @@ Button.styleguide = {
   example: (
     <div className="example">
       <Button text="Default" link="#" />
-      <Button text="Rounded Primary" className="rounded primary"/>
+      <Button
+        text="Rounded Primary"
+        className="rounded primary"
+        onClick={ () => alert('Button event!') }
+      />
       <Button className="danger" >
         Danger
       </Button>
@@ -73,7 +77,11 @@ Button.styleguide = {
     </div>
   ),
   code: `<Button text="Default" link="#" />
-    <Button text="Rounded Primary" className="rounded primary"/>
+    <Button
+      text="Rounded Primary"
+      className="rounded primary"
+      onClick={ () => alert('Button event!') }
+    />
     <Button className="danger" >
       Danger
     </Button>

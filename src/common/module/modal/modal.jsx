@@ -1,21 +1,8 @@
 import React from 'react'
-import Button from 'button/button'
 
 class Modal extends React.Component {
   constructor (props) {
     super(props)
-  }
-
-  renderButton () {
-    if (this.props.buttonText !== '') {
-      return (
-        <Button
-          text={ this.props.buttonText }
-          className={ this.props.buttonClass }
-          onClick={ this.buttonClick.bind(this) }
-        />
-      )
-    }
   }
 
   buttonClick (evt) {
@@ -23,12 +10,22 @@ class Modal extends React.Component {
     this.modalOpen()
   }
 
+  addClass (node, className) {
+    node.className += ` ${className}`
+  }
+
+  removeClass (node, className) {
+    node.className = node.className.replace(` ${className}`, '')
+  }
+
   modalOpen () {
-    this.refs.modal.className += ' open'
+    this.addClass(this.refs.modal, 'open')
+    this.addClass(document.body, 'modal-opened')
   }
 
   modalClose () {
-    this.refs.modal.className = this.refs.modal.className.replace(/ open/g, '')
+    this.removeClass(this.refs.modal, 'open')
+    this.removeClass(document.body, 'modal-opened')
   }
 
   componentDidMount () {
@@ -50,7 +47,12 @@ class Modal extends React.Component {
       <div
         className="modal"
       >
-        { this.renderButton() }
+        <div
+          className="modal-button"
+          onClick={ this.buttonClick.bind(this) }
+        >
+          { this.props.link }
+        </div>
         <div
           ref="modal"
           className="modal-overlay"
@@ -75,15 +77,12 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-  buttonText: React.PropTypes.string,
-  buttonClass: React.PropTypes.string,
+  link: React.PropTypes.node,
   children: React.PropTypes.element.isRequired,
   size: React.PropTypes.string
 }
 
 Modal.defaultProps = {
-  buttonText: '',
-  buttonClass: '',
   size: 'large'
 }
 
@@ -92,15 +91,14 @@ Modal.styleguide = {
   description: 'Modal',
   example: (
     <Modal
-      buttonText="Click ME!"
-      buttonClass="outlined secondary"
+      link="Link for modal"
+      size="small"
     >
       <div>Some elements here...</div>
     </Modal>
   ),
   code: `<Modal
-      buttonText="Click ME!"
-      buttonClass="outlined secondary"
+      link="Link for modal"
       size="small"
     >
       <div>Some elements here...</div>
