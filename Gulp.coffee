@@ -2,7 +2,7 @@ gulp = require 'gulp'
 $  = require('gulp-load-plugins')()
 requireDir = require 'require-dir'
 
-process.env.APP ||= 'home'
+process.env.APP ||= process.env.app || 'home'
 
 console.log "------->>> Building #{process.env.APP}..."
 

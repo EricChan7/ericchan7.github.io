@@ -1,5 +1,5 @@
-src = './src/common'
-dest = './common'
+src = './src/style'
+dest = './style'
 
 module.exports =
   tasks: ['browserify', 'page', 'style']
@@ -25,7 +25,7 @@ module.exports =
       './bower_components'
     ]
     lib: [
-      './src/common/module/font.css'
+      './src/style/module/font.css'
       './node_modules/normalize.css/normalize.css'
     ]
 

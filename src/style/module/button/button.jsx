@@ -1,25 +1,9 @@
 import React from 'react'
+import Mixin from 'mixin'
 
 class Button extends React.Component {
   constructor (props) {
     super(props)
-  }
-
-  whichTransitionEvent (){
-    let t, el = document.createElement('fakeelement')
-
-    var transitions = {
-      'transition'      : 'transitionend',
-      'OTransition'     : 'oTransitionEnd',
-      'MozTransition'   : 'transitionend',
-      'WebkitTransition': 'webkitTransitionEnd'
-    }
-
-    for (t in transitions){
-      if (el.style[t] !== undefined){
-        return transitions[t]
-      }
-    }
   }
 
   componentDidMount () {
@@ -27,7 +11,7 @@ class Button extends React.Component {
       this.refs.button.classList.add('ripple')
     })
 
-    this.refs.button.addEventListener(this.whichTransitionEvent(), () => {
+    this.refs.button.addEventListener(Mixin.whichTransitionEvent(), () => {
       this.refs.button.classList.remove('ripple')
     })
   }

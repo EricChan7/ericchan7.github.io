@@ -18,12 +18,7 @@ export default class ListItem extends React.Component {
   render () {
     return (
       <li ref="listItem" className={ `${this.props.className} list-item` }>
-        <Button
-          className={ this.props.buttonClass }
-          text={ this.props.text }
-          onClick={ this.props.onClick }
-          link={ this.props.link }
-        />
+        { this.props.children || this.props.text }
       </li>
     )
   }

@@ -51,13 +51,13 @@ Sticky.styleguide = {
   example: (
     <Sticky top={50}>
       <div style={{textAlign: 'right'}}>
-        Anything in between...
+        Sticky example...
       </div>
     </Sticky>
   ),
   code: `<Sticky top="50">
       <div>
-        Anything in between...
+        Sticky example...
       </div>
     </Sticky>`
 }

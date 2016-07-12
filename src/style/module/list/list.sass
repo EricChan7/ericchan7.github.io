@@ -8,20 +8,21 @@
   padding: 0
 
   .list-item
+    background-color: transparent
+
+    &:hover
+      background-color: $grey
+
+    &.selected
+      background-color: $default
+      color: white
+
     .button
       display: block
       margin: 0
       background-color: transparent
-      color: $black
+      color: inherit
       transition: background-color 500ms
-
-      &:hover
-        background-color: $grey
-
-    &.selected
-      .button
-        background-color: $default
-        color: white
 
   @include listColor('primary', $primary)
   @include listColor('secondary', $secondary)
