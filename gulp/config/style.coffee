@@ -34,5 +34,5 @@ module.exports =
 
   watch:
     style: ["#{src}/example/*.sass", "#{src}/module/**/*.sass"]
-    browserify: ["#{src}/example/*.jsx", "#{src}/module/**/*.jsx"]
+    browserify: ["#{src}/example/*.jsx", "#{src}/module/**/*.jsx", "#{src}/module/**/*.coffee"]
     page: "#{src}/*.html"

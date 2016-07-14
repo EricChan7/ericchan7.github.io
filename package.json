@@ -35,6 +35,7 @@
     "react-tap-event-plugin": "^0.2.2",
     "socket.io": "^1.4.5",
     "socket.io-p2p-server": "^1.2.0",
+    "superagent": "^2.1.0",
     "underscore": "^1.8.3",
     "utf-8-validate": "^1.2.1"
   },

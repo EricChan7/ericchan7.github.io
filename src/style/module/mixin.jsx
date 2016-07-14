@@ -34,6 +34,10 @@ let mixin = {
     node.addEventListener(mixin.whichTransitionEvent(), () => {
       node.classList.remove('ripple')
     })
+  },
+  padding (origin, pad, num) {
+    num -= String(origin).length
+    return Array(num).fill(pad).join('') + String(origin)
   }
 }
 

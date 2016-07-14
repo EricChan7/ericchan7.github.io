@@ -10,6 +10,7 @@ import List from 'list/list'
 import ListItem from 'list/list-item'
 import Sticky from 'sticky/sticky'
 import ScrollLink from 'scroll-link/scroll-link'
+import Api from 'api.coffee'
 
 class App extends React.Component {
   constructor() {
@@ -24,6 +25,8 @@ class App extends React.Component {
       List,
       ScrollLink
     ]
+
+    window.api = new Api('https://italk-pro.herokuapp.com', 'api/v1')
   }
 
   render() {
