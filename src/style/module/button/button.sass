@@ -15,7 +15,6 @@
 
 button, .button
   display: inline-block
-  position: relative
   background-color: $default
   color: $white
   border: none
@@ -31,21 +30,7 @@ button, .button
     background-color: darken($default, 10%)
 
   // Ripple Effect
-  &:before
-    content: ''
-    display: block
-    position: absolute
-    width: 100%
-    height: 100%
-    top: 0
-    left: 0
-    background-color: rgba(white, 0)
-    clip-path: circle(0 at center)
-    transition: clip-path 500ms, -webkit-clip-path 500ms
-
-  &.ripple:before
-    background-color: rgba(white, .1)
-    clip-path: circle(75% at center)
+  @include rippleEffect()
 
   // Color
   @include buttonColor('primary', $primary, lighten($primary, 10%))

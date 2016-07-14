@@ -1,4 +1,5 @@
 import React from 'react'
+import Mixin from 'mixin'
 
 export default class ListItem extends React.Component {
   constructor (props) {
@@ -12,6 +13,8 @@ export default class ListItem extends React.Component {
       })
       this.refs.listItem.classList.add('selected')
     })
+
+    Mixin.rippleEffect(this.refs.listItem)
   }
 
   render () {

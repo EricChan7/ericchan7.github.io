@@ -7,19 +7,13 @@ class Button extends React.Component {
   }
 
   componentDidMount () {
-    this.refs.button.addEventListener('click', () => {
-      this.refs.button.classList.add('ripple')
-    })
-
-    this.refs.button.addEventListener(Mixin.whichTransitionEvent(), () => {
-      this.refs.button.classList.remove('ripple')
-    })
+    Mixin.rippleEffect(this.refs.ripple)
   }
 
   render () {
     return (
       <a
-        ref="button"
+        ref="ripple"
         className={ this.props.className + ' button' }
         href={ this.props.link }
         onClick={ this.props.onClick }

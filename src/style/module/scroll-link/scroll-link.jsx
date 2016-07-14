@@ -32,17 +32,15 @@ ScrollLink.propTypes = {
 
 ScrollLink.styleguide = {
   title: 'ScrollLink',
-  description: 'A Sticky wrapper',
+  description: 'Scroll within page',
   example: (
     <ScrollLink link="Button">
       Link Text
     </ScrollLink>
   ),
-  code: `<Sticky top="50">
-      <div>
-        Sticky example...
-      </div>
-    </Sticky>`
+  code: `<ScrollLink link="Button">
+      Link Text
+    </ScrollLink>`
 }
 
 export default ScrollLink

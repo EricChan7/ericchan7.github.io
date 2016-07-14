@@ -25,6 +25,15 @@ let mixin = {
           clearInterval(scrollInterval) // scroll end
         }
       }, interval)
+  },
+  rippleEffect: (node) => {
+    node.addEventListener('click', () => {
+      node.classList.add('ripple')
+    })
+
+    node.addEventListener(mixin.whichTransitionEvent(), () => {
+      node.classList.remove('ripple')
+    })
   }
 }
 
