@@ -1,7 +1,11 @@
 @mixin listColor($target, $bgColor, $wColor:$white)
-  &.#{$target} .list-item.selected .button
+  &.#{$target} .list-item.selected
     background-color: $bgColor
     color: $wColor
+
+a
+  color: inherit
+  text-decoration: none
 
 .list
   list-style: none
@@ -9,6 +13,7 @@
 
   .list-item
     background-color: transparent
+    transition: background-color 500ms
 
     &:hover
       background-color: $grey
@@ -17,12 +22,9 @@
       background-color: $default
       color: white
 
-    .button
+    > *
       display: block
-      margin: 0
-      background-color: transparent
-      color: inherit
-      transition: background-color 500ms
+      padding: .5em $padding
 
   @include listColor('primary', $primary)
   @include listColor('secondary', $secondary)

@@ -753,33 +753,35 @@ button, .button {
 .modal-opened {
   overflow: hidden; }
 
+a {
+  color: inherit;
+  text-decoration: none; }
+
 .list {
   list-style: none;
   padding: 0; }
   .list .list-item {
-    background-color: transparent; }
+    background-color: transparent;
+    -webkit-transition: background-color 500ms;
+            transition: background-color 500ms; }
     .list .list-item:hover {
       background-color: #F5F5F5; }
     .list .list-item.selected {
       background-color: #FF8A65;
       color: white; }
-    .list .list-item .button {
+    .list .list-item > * {
       display: block;
-      margin: 0;
-      background-color: transparent;
-      color: inherit;
-      -webkit-transition: background-color 500ms;
-              transition: background-color 500ms; }
-  .list.primary .list-item.selected .button {
+      padding: 0.5em 1.25rem; }
+  .list.primary .list-item.selected {
     background-color: #3949AB;
     color: #FFFFFF; }
-  .list.secondary .list-item.selected .button {
+  .list.secondary .list-item.selected {
     background-color: #AB47BC;
     color: #FFFFFF; }
-  .list.warning .list-item.selected .button {
+  .list.warning .list-item.selected {
     background-color: #FBC02D;
     color: #FFFFFF; }
-  .list.danger .list-item.selected .button {
+  .list.danger .list-item.selected {
     background-color: #F44336;
     color: #FFFFFF; }
   .panel .list {

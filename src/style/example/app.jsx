@@ -9,6 +9,7 @@ import Modal from 'modal/modal'
 import List from 'list/list'
 import ListItem from 'list/list-item'
 import Sticky from 'sticky/sticky'
+import ScrollLink from 'scroll-link/scroll-link'
 
 class App extends React.Component {
   constructor() {
@@ -20,7 +21,8 @@ class App extends React.Component {
       Panel,
       Sticky,
       Modal,
-      List
+      List,
+      ScrollLink
     ]
   }
 
@@ -49,9 +51,13 @@ class App extends React.Component {
       return (
         <ListItem
           key={ i }
-          text={ obj.styleguide.title }
-          link={ `#${obj.styleguide.title}` }
-        />
+        >
+          <ScrollLink
+            link={ obj.styleguide.title }
+          >
+            { obj.styleguide.title }
+          </ScrollLink>
+        </ListItem>
       )
     })
 

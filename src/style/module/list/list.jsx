@@ -31,9 +31,13 @@ List.styleguide = {
   description: 'A list.',
   example: (
     <List className="danger">
-      <ListItem text="list item 1" onClick={ (evt) => { evt.preventDefault() } } />
-      <ListItem text="list item 2" className="selected" />
-      <ListItem text="list item 3" />
+      <ListItem text="List Item 1" />
+      <ListItem text="List Item 2" className="selected" />
+      <ListItem>
+        <a href="http://info.kinyeung.com/">
+          List Item 3
+        </a>
+      </ListItem>
     </List>
   ),
   code: `<List className="danger">

@@ -19075,6 +19075,10 @@ var _sticky = require('sticky/sticky');
 
 var _sticky2 = _interopRequireDefault(_sticky);
 
+var _scrollLink = require('scroll-link/scroll-link');
+
+var _scrollLink2 = _interopRequireDefault(_scrollLink);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19091,7 +19095,7 @@ var App = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
 
-    _this.lists = [_color2.default, _button2.default, _panel2.default, _sticky2.default, _modal2.default, _list2.default];
+    _this.lists = [_color2.default, _button2.default, _panel2.default, _sticky2.default, _modal2.default, _list2.default, _scrollLink2.default];
     return _this;
   }
 
@@ -19121,11 +19125,19 @@ var App = function (_React$Component) {
       });
 
       var menu = this.lists.map(function (obj, i) {
-        return _react2.default.createElement(_listItem2.default, {
-          key: i,
-          text: obj.styleguide.title,
-          link: '#' + obj.styleguide.title
-        });
+        return _react2.default.createElement(
+          _listItem2.default,
+          {
+            key: i
+          },
+          _react2.default.createElement(
+            _scrollLink2.default,
+            {
+              link: obj.styleguide.title
+            },
+            obj.styleguide.title
+          )
+        );
       });
 
       return _react2.default.createElement(
@@ -19170,7 +19182,7 @@ var App = function (_React$Component) {
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('container'));
 
-},{"button/button":162,"color":160,"list/list":164,"list/list-item":163,"modal/modal":166,"panel/panel":169,"react":158,"react-dom":2,"sticky/sticky":170,"styleguide":161}],160:[function(require,module,exports){
+},{"button/button":162,"color":160,"list/list":164,"list/list-item":163,"modal/modal":166,"panel/panel":169,"react":158,"react-dom":2,"scroll-link/scroll-link":170,"sticky/sticky":171,"styleguide":161}],160:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -19453,10 +19465,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _button = require('button/button');
-
-var _button2 = _interopRequireDefault(_button);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19492,7 +19500,11 @@ var ListItem = function (_React$Component) {
       return _react2.default.createElement(
         'li',
         { ref: 'listItem', className: this.props.className + ' list-item' },
-        this.props.children || this.props.text
+        this.props.children || _react2.default.createElement(
+          'span',
+          null,
+          this.props.text
+        )
       );
     }
   }]);
@@ -19506,17 +19518,14 @@ exports.default = ListItem;
 ListItem.propTypes = {
   children: _react2.default.PropTypes.node,
   text: _react2.default.PropTypes.string,
-  onClick: _react2.default.PropTypes.func,
-  link: _react2.default.PropTypes.string,
-  className: _react2.default.PropTypes.string,
-  buttonClass: _react2.default.PropTypes.string
+  className: _react2.default.PropTypes.string
 };
 
 ListItem.defaultProps = {
   className: ''
 };
 
-},{"button/button":162,"react":158}],164:[function(require,module,exports){
+},{"react":158}],164:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -19584,11 +19593,17 @@ List.styleguide = {
   example: _react2.default.createElement(
     List,
     { className: 'danger' },
-    _react2.default.createElement(_listItem2.default, { text: 'list item 1', onClick: function onClick(evt) {
-        evt.preventDefault();
-      } }),
-    _react2.default.createElement(_listItem2.default, { text: 'list item 2', className: 'selected' }),
-    _react2.default.createElement(_listItem2.default, { text: 'list item 3' })
+    _react2.default.createElement(_listItem2.default, { text: 'List Item 1' }),
+    _react2.default.createElement(_listItem2.default, { text: 'List Item 2', className: 'selected' }),
+    _react2.default.createElement(
+      _listItem2.default,
+      null,
+      _react2.default.createElement(
+        'a',
+        { href: 'http://info.kinyeung.com/' },
+        'List Item 3'
+      )
+    )
   ),
   code: '<List className="danger">\n      <ListItem text="list item 1" onClick={ (evt) => { evt.preventDefault() } } />\n      <ListItem text="list item 2" className="selected" />\n      <ListItem text="list item 3" />\n    </List>'
 };
@@ -19616,6 +19631,17 @@ var mixin = {
         return transitions[t];
       }
     }
+  },
+  scrollTo: function scrollTo(node, time) {
+    var interval = 10,
+        count = time / interval,
+        scrollInterval = setInterval(function () {
+      var scrollIndex = node.getBoundingClientRect().top / count; // ease function
+      window.scrollBy(0, scrollIndex);
+      if (1 >= count--) {
+        clearInterval(scrollInterval); // scroll end
+      }
+    }, interval);
   }
 };
 
@@ -19993,6 +20019,89 @@ exports.PanelHeader = _panelHeader2.default;
 exports.PanelFooter = _panelFooter2.default;
 
 },{"panel/panel-footer":167,"panel/panel-header":168,"react":158}],170:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _mixin = require('mixin');
+
+var _mixin2 = _interopRequireDefault(_mixin);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ScrollLink = function (_React$Component) {
+  _inherits(ScrollLink, _React$Component);
+
+  function ScrollLink() {
+    _classCallCheck(this, ScrollLink);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(ScrollLink).apply(this, arguments));
+  }
+
+  _createClass(ScrollLink, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.refs.scroll.addEventListener('click', function (evt) {
+        evt.preventDefault();
+        var node = document.getElementById(_this2.refs.scroll.dataset.scrollTo.replace('#', ''));
+        _mixin2.default.scrollTo(node, 500);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        {
+          ref: 'scroll',
+          'data-scroll-to': '#' + this.props.link,
+          style: {
+            cursor: 'pointer'
+          }
+        },
+        this.props.children
+      );
+    }
+  }]);
+
+  return ScrollLink;
+}(_react2.default.Component);
+
+ScrollLink.propTypes = {
+  children: _react2.default.PropTypes.node,
+  link: _react2.default.PropTypes.string
+};
+
+ScrollLink.styleguide = {
+  title: 'ScrollLink',
+  description: 'A Sticky wrapper',
+  example: _react2.default.createElement(
+    ScrollLink,
+    { link: 'Button' },
+    'Link Text'
+  ),
+  code: '<Sticky top="50">\n      <div>\n        Sticky example...\n      </div>\n    </Sticky>'
+};
+
+exports.default = ScrollLink;
+
+},{"mixin":165,"react":158}],171:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

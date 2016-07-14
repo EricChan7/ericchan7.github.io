@@ -14,6 +14,17 @@ let mixin = {
         return transitions[t]
       }
     }
+  },
+  scrollTo: (node, time) => {
+    let interval = 10,
+      count = time / interval,
+      scrollInterval = setInterval(() => {
+        let scrollIndex = node.getBoundingClientRect().top / count // ease function
+        window.scrollBy(0, scrollIndex)
+        if (1 >= count--) {
+          clearInterval(scrollInterval) // scroll end
+        }
+      }, interval)
   }
 }
 

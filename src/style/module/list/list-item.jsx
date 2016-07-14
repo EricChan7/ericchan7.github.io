@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from 'button/button'
 
 export default class ListItem extends React.Component {
   constructor (props) {
@@ -18,7 +17,7 @@ export default class ListItem extends React.Component {
   render () {
     return (
       <li ref="listItem" className={ `${this.props.className} list-item` }>
-        { this.props.children || this.props.text }
+        { this.props.children || (<span>{this.props.text}</span>) }
       </li>
     )
   }
@@ -27,10 +26,7 @@ export default class ListItem extends React.Component {
 ListItem.propTypes = {
   children: React.PropTypes.node,
   text: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  link: React.PropTypes.string,
-  className: React.PropTypes.string,
-  buttonClass: React.PropTypes.string
+  className: React.PropTypes.string
 }
 
 ListItem.defaultProps = {
