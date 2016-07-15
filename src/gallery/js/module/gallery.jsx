@@ -30,26 +30,26 @@ class Gallery extends React.Component {
     } else {
       return (
         <PassCode
-          passFunc={ this.checkPassword.bind(this) }
+          passFunc={ this.startGallery.bind(this) }
         />
       )
     }
   }
 
-  checkPassword(evt) {
-    if (evt.target.value == '00888') {
-      this.setState({ pass: true })
-    }
+  startGallery() {
+    this.setState({ pass: true })
   }
 
   componentWillMount() {
-    this.getImage.list().then(() => {
-      setInterval(() => {
-        if (this.state.pass) {
-          this.setState({ showImage: !this.state.showImage })
-        }
-      }, 5000)
-    }, (e) => console.log(e))
+    if (window.api.is_logged_in) {
+      this.startGallery()
+    }
+
+    setInterval(() => {
+      if (this.state.pass && this.getImage.size > 0) {
+        this.setState({ showImage: !this.state.showImage })
+      }
+    }, 5000)
   }
 
   render() {
