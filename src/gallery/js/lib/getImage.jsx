@@ -4,7 +4,6 @@ class GetImage {
     this.fetching = false
     this.size = n
     this.images = []
-    this.image
   }
 
   list() {
@@ -20,7 +19,7 @@ class GetImage {
             resolve()
           }, () => {
             this.fetching = false
-            reject()
+            reject('Error, fetch fail.')
           })
       }
     })

@@ -3,13 +3,22 @@ request = require 'superagent'
 basic_encode = (a, b) ->
   'Basic ' + btoa("#{a}:#{b}")
 
+errorHandle = (reject) ->
+  if err.status == 401
+    localStorage.setItem 'email', undefined
+    localStorage.setItem 'token', undefined
+    self.email = localStorage.getItem 'email'
+    self.token = localStorage.getItem 'token'
+
 module.exports = class Api
   constructor: (url, version) ->
     @api = "#{url}/#{version}"
     @request = request
     @email = localStorage.getItem 'email'
     @token = localStorage.getItem 'token'
-    @is_logged_in = @token?
+
+  is_logged_in: ->
+    @token?
 
   login: (email, password) ->
     self = @
@@ -70,7 +79,11 @@ module.exports = class Api
         .set
           Authorization: basic_encode(self.email, self.token)
         .end (err, res) ->
-          if !err then resolve(res) else reject(err)
+          if !err
+            resolve(res)
+          else
+            errorHandle()
+            reject(err)
 
   randomGalleries: (n) ->
     self = @
@@ -79,7 +92,11 @@ module.exports = class Api
         .set
           Authorization: basic_encode(self.email, self.token)
         .end (err, res) ->
-          if !err then resolve(res) else reject(err)
+          if !err
+            resolve(res)
+          else
+            errorHandle()
+            reject(err)
 
   updateGalleries: (name) ->
     self = @
@@ -88,4 +105,8 @@ module.exports = class Api
         .set
           Authorization: basic_encode(self.email, self.token)
         .end (err, res) ->
-          if !err then resolve(res) else reject(err)
+          if !err
+            resolve(res)
+          else
+            errorHandle()
+            reject(err)

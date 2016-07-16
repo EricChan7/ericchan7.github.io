@@ -41,8 +41,11 @@ class Gallery extends React.Component {
   }
 
   componentWillMount() {
-    if (window.api.is_logged_in) {
-      this.startGallery()
+    if (window.api.is_logged_in()) {
+      this.getImage.list()
+        .then(() => this.startGallery(), (e) => console.info(e))
+    } else {
+      this.setState({ pass: false })
     }
 
     setInterval(() => {
