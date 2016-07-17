@@ -10,6 +10,7 @@ import List from 'list/list'
 import ListItem from 'list/list-item'
 import Sticky from 'sticky/sticky'
 import ScrollLink from 'scroll-link/scroll-link'
+import Icon from 'icon/icon'
 import Api from 'api.coffee'
 
 class App extends React.Component {
@@ -23,7 +24,8 @@ class App extends React.Component {
       Sticky,
       Modal,
       List,
-      ScrollLink
+      ScrollLink,
+      Icon
     ]
 
     window.api = new Api('https://italk-pro.herokuapp.com', 'api/v1')

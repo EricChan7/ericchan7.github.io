@@ -38,7 +38,6 @@ class passCode extends React.Component {
                 type="password"
                 name="password"
                 placeholder="Password"
-                autoFocus={true}
               />
             </div>
             <input
