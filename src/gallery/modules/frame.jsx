@@ -1,7 +1,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import GetImage from 'lib/getImage'
+import GetImage from 'gallery/lib/getImage'
 
 class Frame extends React.Component {
   constructor(props) {

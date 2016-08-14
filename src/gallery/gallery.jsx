@@ -1,7 +1,8 @@
 import React from 'react'
-import Frame from 'module/frame'
-import GetImage from 'lib/getImage'
-import PassCode from 'module/passCode'
+import Frame from 'gallery/modules/frame'
+import GetImage from 'gallery/lib/getImage'
+import PassCode from 'gallery/modules/passCode'
+import { Link } from 'react-router'
 
 class Gallery extends React.Component {
   constructor() {
@@ -57,7 +58,10 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      this.checkPass()
+      <section id="showGround">
+        <Link to="gallery">Gallery</Link>
+        { this.checkPass() }
+      </section>
     )
   }
 }
