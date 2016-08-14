@@ -3,13 +3,9 @@ var send = require('koa-send')
 
 var app = koa()
 
-// app.use(function *(){
-//   yield send(this, '/public/index.html')
-// })
-
 app.use(function *(next){
   if (this.path == '/app.js' || this.path == '/app.css' || this.path.match(/^\/assets\//g) != null) {
-    yield send(this, this.path, { root: __dirname + '/public' })
+    yield send(this, this.path, { root: __dirname + '/www' })
   } else if (this.path == '/icon.png') {
     yield send(this, '/icon.png')
   }
@@ -19,7 +15,7 @@ app.use(function *(next){
 })
 
 app.use(function *(){
-  yield send(this, '/public/index.html')
+  yield send(this, '/www/index.html')
 })
 
 app.listen(3000)
