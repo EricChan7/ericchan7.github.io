@@ -1,5 +1,5 @@
 src = './src'
-dest = '.'
+dest = './public'
 
 module.exports =
   tasks: ['browserify', 'style', 'page']
@@ -7,13 +7,13 @@ module.exports =
   browserify:
     script: 'react'
     entries: ["#{src}/app.jsx"]
-    dest: "#{dest}"
+    dest: dest
     paths: [src, "#{src}/style/modules", './node_modules', './bower_components']
     extensions: ['.jsx', '.js']
 
   style:
     src: "#{src}/app.sass"
-    dest: "#{dest}"
+    dest: dest
     paths: [src, "#{src}/style/modules", './node_modules', './bower_components']
     lib: [
       './src/style/modules/font.css'
@@ -23,10 +23,10 @@ module.exports =
 
   page:
     src: "#{src}/*.html"
-    dest: "#{dest}"
+    dest: dest
 
   browserSync:
-    serve: "#{dest}"
+    serve: dest
 
   watch:
     browserify: ["#{src}/**/*.jsx", "#{src}/**/*.js"]

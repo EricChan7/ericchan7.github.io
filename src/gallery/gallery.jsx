@@ -59,7 +59,6 @@ class Gallery extends React.Component {
   render() {
     return (
       <section id="showGround">
-        <Link to="gallery">Gallery</Link>
         { this.checkPass() }
       </section>
     )
