@@ -2,6 +2,7 @@ var koa = require('koa')
 var send = require('koa-send')
 
 var app = koa()
+var port = process.env.NODE_ENV == 'production' ? 80 : 3000
 
 app.use(function *(next){
   if (this.path == '/app.js' || this.path == '/app.css' || this.path.match(/^\/assets\//g) != null) {
@@ -18,5 +19,5 @@ app.use(function *(){
   yield send(this, '/www/index.html')
 })
 
-app.listen(3000)
-console.log('Listening on http://0.0.0.0:3000')
+app.listen(port)
+console.log('Listening on http://0.0.0.0:' + port)
