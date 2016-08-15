@@ -2,7 +2,7 @@ var koa = require('koa')
 var send = require('koa-send')
 
 var app = koa()
-var port = process.env.NODE_ENV == 'production' ? 80 : 3000
+var port = process.env.NODE_ENV == 'production' ? process.env.PORT || 80 : 3000
 
 app.use(function *(next){
   if (this.path == '/app.js' || this.path == '/app.css' || this.path.match(/^\/assets\//g) != null) {
