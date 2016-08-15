@@ -1,0 +1,74 @@
+// Color
+$white: #FFFFFF
+$grey: #F5F5F5
+$black: #212121
+$danger: #F44336
+$warning: #FBC02D
+$default: #FF8A65
+$primary: #3949AB
+$secondary: #AB47BC
+$silver: #C0C0C0
+
+// Responsive
+$max-width: 80rem
+$large-breakpoint: '(min-width: 0rem)'
+$medium-breakpoint: '(min-width: 40rem) and (max-width: 64rem)'
+$small-breakpoint: '(max-width: 40rem)'
+
+// spacing
+$gutter: .5rem
+$padding: 1.25rem
+
+// z-index
+$top: 999
+$toppest: 9999
+
+@mixin clearfix()
+  &:before, &:after
+    content: ''
+    display: table
+
+  &:after
+    clear: both
+
+  *zoom: 1
+
+@mixin rippleEffect()
+  &
+    position: relative
+
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    background-color: rgba(white, 0)
+    clip-path: circle(0 at center)
+    transition: clip-path 500ms, -webkit-clip-path 500ms
+
+  &.ripple:before
+    background-color: rgba(white, .1)
+    clip-path: circle(75% at center)
+
+%shadow-1
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+  transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1)
+
+%shadow-2
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+  transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1)
+
+%shadow-3
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+  transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1)
+
+%shadow-4
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+  transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1)
+
+%shadow-5
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
+  transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1)

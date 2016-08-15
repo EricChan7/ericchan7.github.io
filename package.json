@@ -1,7 +1,7 @@
 {
-  "name": "SoundOFate",
+  "name": "iTalk",
   "version": "1.0.0",
-  "main": "index.html",
+  "main": "server.js",
   "description": "Webapp for dev",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,11 +20,18 @@
     "url": "https://github.com/EricChan7/SoundoFate/issues"
   },
   "homepage": "https://github.com/EricChan7/SoundoFate",
+  "engines": {
+    "node": "6.2.2",
+    "npm": "3.10.3"
+  },
   "browser": {},
   "dependencies": {
     "action-cable-react": "^0.1.1",
     "font-awesome": "^4.5.0",
     "jquery": "^2.1.4",
+    "koa": "^1.2.1",
+    "koa-send": "^3.2.0",
+    "koa-static": "^2.0.0",
     "material-ui": "^0.14.4",
     "material-ui-sass": "^0.7.5",
     "moment": "^2.11.2",
@@ -33,6 +40,7 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-mixin": "^2.0.2",
+    "react-router": "^2.6.1",
     "react-tap-event-plugin": "^0.2.2",
     "socket.io": "^1.4.5",
     "socket.io-p2p-server": "^1.2.0",

@@ -1,30 +1,34 @@
 src = './src'
-dest = '.'
+dest = './www'
 
 module.exports =
   tasks: ['browserify', 'style', 'page']
 
   browserify:
-    script: 'coffee'
-    entries: ["#{src}/app.coffee"]
-    dest: "#{dest}"
-    paths: ["#{src}/js", './src/**/js', './node_modules']
-    extensions: ['.coffee', '.js']
+    script: 'react'
+    entries: ["#{src}/app.jsx"]
+    dest: dest
+    paths: [src, "#{src}/style/modules", './node_modules', './bower_components']
+    extensions: ['.jsx', '.js']
 
   style:
     src: "#{src}/app.sass"
-    dest: "#{dest}"
-    paths: ["#{src}/css", './src/**/css', './node_modules']
-    lib: ['./node_modules/normalize.css/normalize.css']
+    dest: dest
+    paths: [src, "#{src}/style/modules", './node_modules', './bower_components']
+    lib: [
+      './src/style/modules/font.css'
+      './node_modules/normalize.css/normalize.css'
+      './bower_components/animate.css/animate.css'
+    ]
 
   page:
     src: "#{src}/*.html"
-    dest: "#{dest}"
+    dest: dest
 
   browserSync:
-    serve: "#{dest}"
+    serve: dest
 
   watch:
-    style: "#{src}/*.sass"
-    browserify: "#{src}/*.coffee"
+    browserify: ["#{src}/**/*.jsx", "#{src}/**/*.js", "#{src}/**/*.coffee"]
+    style: ["#{src}/**/*.sass"]
     page: "#{src}/*.html"
