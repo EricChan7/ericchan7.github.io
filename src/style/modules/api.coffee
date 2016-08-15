@@ -20,6 +20,15 @@ module.exports = class Api
   is_logged_in: ->
     @token?
 
+  ping: () ->
+    self = @
+    new Promise (resolve, reject) ->
+      self.request.get self.api
+        .set
+          Authorization: basic_encode(self.email, self.token)
+        .end (err, res) ->
+          if !err then resolve res else reject err
+
   login: (email, password) ->
     self = @
     new Promise (resolve, reject) ->

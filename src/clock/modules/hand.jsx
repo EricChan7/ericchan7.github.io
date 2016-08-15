@@ -1,5 +1,5 @@
 import React from 'react'
-import Dot from 'module/dot'
+import Dot from 'clock/modules/dot'
 
 class Hand extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Hand extends React.Component {
   dots(size) {
     let elems = []
     for (var i = size - 1; i >= 0; i--) {
-      elems.push(<Dot key={i} />)
+      elems.push(<Dot key={i} updateDot={this.props.updateHand} />)
     }
     return elems
   }
@@ -31,7 +31,8 @@ class Hand extends React.Component {
 Hand.propTypes = {
   size: React.PropTypes.number.isRequired,
   part: React.PropTypes.string.isRequired,
-  deg: React.PropTypes.number.isRequired
+  deg: React.PropTypes.number.isRequired,
+  updateHand: React.PropTypes.bool.isRequired
 }
 
 export default Hand

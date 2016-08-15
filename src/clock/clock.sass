@@ -1,3 +1,4 @@
+
 @mixin dot-size($size, $color)
   .dot
     $counter: 1em - $size
@@ -6,11 +7,23 @@
     margin: $counter $counter/2
     background-color: $color
 
-#showGround
+#clock
   width: 100vw
   height: 100vh
   color: white
-  background: url(../image/0.jpg)
+  background-color: rgba(invert($white), .88)
+
+  &:before
+    content: ''
+    width: 100%
+    height: 100%
+    display: block
+    position: relative
+    z-index: -1
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    background-image: url(https://lh3.googleusercontent.com/EYBaGu9jm1ZxtdoOHKAL7TOq1gA7p3ZwqEQAYmON_HyDh-edWxYv2h3kz7VFWDhnycOejWi7CAAUvNE2ESoa7Mj7i5sGVcaLa0Bnu15xsgeF0QPIOkdjRdrUVLOahHTEMBInNi8c-HWQNbU-OedeSDfq5b_EYsYvU7kIaH4Fi57NB7T9srAbBWRuLiAb7ylsu5qC8VvsGJxG5MPtvOnKxIijMiPQfCV03Mzb0SrylZWPtdKkhLbVgrQdn5rBJH3c3NdRiUAZffqaFGTPvsW1_eevoWBQ_vANKCbUCpWwq2_jTUtVChHoY6X_Kxpnc6fsdq2sQk0ePQK4Pa_Ded3QY0kJ-_BEGdVOMLFQjDiUpHD4IhXj89Kxa0rDKEFTHY_dmxv_0JRCbRO_IW3lc-McP_WvKTXHRFYevvUNynWe1CzvAaT9RIry3VAIuXemMZrIf99lDJzHXInV3v8NiOTl117iK4WECtr4gunK4vJBNYAqUjbGZQ_3iecMu709FNa-Vei-dgHBq-kIp3WmCvSBC4r97auE9-Gn-gP_Qux4EgLs_Fucx9GXcyQ6TrkRkIopQiybEAi_EJimnV1_wEj8eSqAOpDGd4ok=w1296-h810-no)
 
   .dots
     position: absolute
@@ -40,13 +53,13 @@
     width: 15em
     height: 15em
     border-radius: 15em
-    background-color: rgba(#111, .85)
+    background: rgba($black, .85)
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 
     .heart
       width: 2em
       height: 2em
-      background-color: #000
+      background-color: $black
       border-radius: 1em
       position: absolute
       top: 50%

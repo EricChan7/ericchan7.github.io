@@ -35,9 +35,12 @@ let mixin = {
       node.classList.remove('ripple')
     })
   },
-  padding (origin, pad, num) {
+  padding: (origin, pad, num) => {
     num -= String(origin).length
     return Array(num).fill(pad).join('') + String(origin)
+  },
+  title: (title) => {
+    document.title = `${title} | CHAN Kin Yeung - Fullstack Developer`
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Sym from 'module/syms'
+import Sym from 'clock/modules/syms'
 
 class Face extends React.Component {
   constructor() {
@@ -33,13 +33,18 @@ class Face extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({radius: 100})
+    this.setState({radius: this.props.size/2 - 16})
   }
 
   render() {
     return (
       <div
         className="face"
+        style={{
+          width: `${this.props.size/16}rem`,
+          height: `${this.props.size/16}rem`,
+          borderRadius: `${this.props.size/16}rem`
+        }}
       >
         <div className="syms">
           { this.symsElem() }
@@ -51,6 +56,10 @@ class Face extends React.Component {
       </div>
     )
   }
+}
+
+Face.propTypes = {
+  size: React.PropTypes.number
 }
 
 export default Face

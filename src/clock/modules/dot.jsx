@@ -13,18 +13,35 @@ class Dot extends React.Component {
                       '#E64A19']
   }
 
+  componentWillMount() {
+    this.color = this.setColor()
+  }
+
+  componentWillUpdate(nextProps) {
+    if (nextProps.updateDot) {
+      this.color = this.setColor()
+    }
+  }
+
+  setColor() {
+    return this.colorPool[Math.floor(Math.random()*this.colorPool.length)]
+  }
+
   render() {
-    let randColor = this.colorPool[Math.floor(Math.random()*this.colorPool.length)]
     return (
       <div
         className={"dot"}
         style={{
-          backgroundColor: randColor
+          backgroundColor: this.color
         }}
       >
       </div>
     )
   }
+}
+
+Dot.propTypes = {
+  updateDot: React.PropTypes.bool.isRequired
 }
 
 export default Dot

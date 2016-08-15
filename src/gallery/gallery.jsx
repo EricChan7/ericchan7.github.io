@@ -3,6 +3,7 @@ import Frame from 'gallery/modules/frame'
 import GetImage from 'gallery/lib/getImage'
 import PassCode from 'gallery/modules/passCode'
 import { Link } from 'react-router'
+import Mixin from 'mixin'
 
 class Gallery extends React.Component {
   constructor() {
@@ -42,6 +43,7 @@ class Gallery extends React.Component {
   }
 
   componentWillMount() {
+    Mixin.title('Gallery')
     if (window.api.is_logged_in()) {
       this.getImage.list()
         .then(() => this.startGallery(), (e) => console.info(e))

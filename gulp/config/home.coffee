@@ -29,6 +29,6 @@ module.exports =
     serve: dest
 
   watch:
-    browserify: ["#{src}/**/*.jsx", "#{src}/**/*.js"]
+    browserify: ["#{src}/**/*.jsx", "#{src}/**/*.js", "#{src}/**/*.coffee"]
     style: ["#{src}/**/*.sass"]
     page: "#{src}/*.html"
