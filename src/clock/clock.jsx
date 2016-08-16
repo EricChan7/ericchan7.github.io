@@ -9,7 +9,7 @@ class Clock extends React.Component {
 
   componentWillMount() {
     Mixin.title('Time')
-    this.size = 400
+    this.size = 320
   }
 
   render() {
