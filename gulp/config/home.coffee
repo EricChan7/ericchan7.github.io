@@ -27,6 +27,11 @@ module.exports =
 
   browserSync:
     serve: dest
+    proxy: 'localhost:8888'
+
+  nodemon:
+    script: './server.js'
+    watch: 'server.js'
 
   watch:
     browserify: ["#{src}/**/*.jsx", "#{src}/**/*.js", "#{src}/**/*.coffee"]

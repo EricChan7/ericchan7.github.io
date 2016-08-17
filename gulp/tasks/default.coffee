@@ -4,4 +4,4 @@ module.exports = (gulp, $, config) ->
     $.sequence config.tasks, cb
 
   gulp.task 'default', ['build'], (cb) ->
-    $.sequence 'browserSync', cb
+    $.sequence 'nodemon', 'browserSync', cb
