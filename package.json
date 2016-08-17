@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "bower install && gulp build",
-    "start": "node server.js",
-    "dev": "gulp"
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
