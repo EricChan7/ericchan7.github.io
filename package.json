@@ -5,7 +5,7 @@
   "description": "Webapp for dev",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "gulp build",
+    "postinstall": "bower install && gulp build",
     "start": "node server.js",
     "dev": "gulp"
   },
@@ -54,6 +54,7 @@
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.2.0",
+    "bower": "^1.7.9",
     "browser-sync": "^2.8.2",
     "browserify": "^10.2.4",
     "coffee-script": "^1.9.3",
