@@ -9,7 +9,7 @@ app.use(gzip())
 
 app.use(function *(next){
   if (this.path == '/app.js' || this.path == '/app.css' || this.path.match(/^\/assets\//g) != null) {
-    yield send(this, this.path, { root: __dirname + '/www' })
+    yield send(this, this.path, { root: __dirname + '/public' })
   } else if (this.path == '/icon.png') {
     yield send(this, '/icon.png')
   }
@@ -19,7 +19,7 @@ app.use(function *(next){
 })
 
 app.use(function *(){
-  yield send(this, '/www/index.html')
+  yield send(this, '/public/index.html')
 })
 
 app.listen(port)

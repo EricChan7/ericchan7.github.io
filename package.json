@@ -5,10 +5,9 @@
   "description": "Webapp for dev",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp",
-    "predeploy": "npm install",
-    "deploy": "NODE_ENV=production gulp build",
-    "postdeploy": "git add ."
+    "prestart": "gulp build",
+    "start": "node server.js",
+    "dev": "gulp"
   },
   "repository": {
     "type": "git",

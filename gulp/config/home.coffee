@@ -1,5 +1,5 @@
 src = './src'
-dest = './www'
+dest = './public'
 
 module.exports =
   tasks: ['browserify', 'style', 'page']
