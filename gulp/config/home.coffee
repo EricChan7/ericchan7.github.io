@@ -30,8 +30,8 @@ module.exports =
     proxy: 'localhost:8888'
 
   nodemon:
-    script: './server.js'
-    watch: 'server.js'
+    script: './server.coffee'
+    watch: 'server.coffee'
 
   watch:
     browserify: ["#{src}/**/*.jsx", "#{src}/**/*.js", "#{src}/**/*.coffee"]
