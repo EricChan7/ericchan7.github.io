@@ -1,0 +1,25 @@
+.passCode
+  position: absolute
+  width: 100vw
+  height: 100vh
+  text-align: center
+
+  .row
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+
+  input[type="email"], input[type="password"]
+    width: 500px
+    max-width: 95vw
+    padding: .75em .5em
+    margin: .5em
+    text-align: center
+    letter-spacing: 2px
+    outline: none
+    border: none
+    border-radius: .5em
+    background-color: rgba(white, .95)
+
+  input[type="submit"]
+    @extend .button

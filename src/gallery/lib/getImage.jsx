@@ -33,7 +33,7 @@ class GetImage {
   }
 
   get imageSize() {
-    return this.images.size
+    return this.images.length
   }
 
   static showURL(base_url) {

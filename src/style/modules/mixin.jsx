@@ -15,6 +15,23 @@ let mixin = {
       }
     }
   },
+  whichAnimationEvent: () => {
+    let t, el = document.createElement('fakeElement')
+
+    var animation = {
+      'animation'      : 'animationend',
+      'oanimation'     : 'oanimationend',
+      'mozAnimation'   : 'mozAnimationEnd',
+      'WebkitAnimation': 'webkitAnimationEnd',
+      'MSAnimation'    : 'MSAnimationEnd'
+    }
+
+    for (t in animation){
+      if (el.style[t] !== undefined){
+        return animation[t]
+      }
+    }
+  },
   scrollTo: (node, time) => {
     let interval = 10,
       count = time / interval,

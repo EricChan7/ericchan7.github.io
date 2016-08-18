@@ -1,7 +1,7 @@
 
 import React from 'react'
-import ReactDOM from 'react-dom'
 import GetImage from 'gallery/lib/getImage'
+import Mixin from 'mixin'
 
 class Frame extends React.Component {
   constructor(props) {
@@ -29,6 +29,22 @@ class Frame extends React.Component {
     }
   }
 
+  componentWillMount() {
+    this.setState({ image: this.props.getImage.image })
+  }
+
+  componentDidMount() {
+    $(this.refs.frame).on(Mixin.whichAnimationEvent(), () => {
+      if (!this.props.state) this.setState({ image: this.props.getImage.image })
+    })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      className: `${this.className} animated ${nextProps.state ? this.selectAnimation(this.in) : this.selectAnimation(this.out)}`
+    })
+  }
+
   setStyle(image) {
     if (image.url_base == undefined) {
       return {
@@ -43,9 +59,7 @@ class Frame extends React.Component {
 
       return {
         backgroundImage: GetImage.showURL(image.url_base),
-        backgroundSize: a && c || a && !b || !b && c ? '100% auto' : 'auto 100%',
-        color: 'rgba(0,0,0,0)',
-        top: '0'
+        backgroundSize: a && c || a && !b || !b && c ? '100% auto' : 'auto 100%'
       }
     }
   }
@@ -58,24 +72,12 @@ class Frame extends React.Component {
     return list[this.rand(list.length)]
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      className: `${this.className} animated ${nextProps.state ? this.selectAnimation(this.in) : this.selectAnimation(this.out)}`
-    })
-  }
-
-  componentDidMount() {
-    $(ReactDOM.findDOMNode(this)).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', () => {
-      if (!this.props.state) this.setState({ image: this.props.image })
-      $(ReactDOM.findDOMNode(this)).text(this.state.image.url_base == undefined ? 'Initializing...' : '')
-    })
-  }
-
   render() {
     return (
       <div
-        className={this.state.className}
-        style={this.setStyle(this.state.image)}
+        className={ this.state.className }
+        style={ this.setStyle(this.state.image) }
+        ref='frame'
       >
       </div>
     )
@@ -83,7 +85,7 @@ class Frame extends React.Component {
 }
 
 Frame.propTypes = {
-  image: React.PropTypes.object.isRequired,
+  getImage: React.PropTypes.instanceOf(GetImage).isRequired,
   state: React.PropTypes.bool.isRequired
 }
 
