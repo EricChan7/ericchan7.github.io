@@ -14,7 +14,7 @@ class Clock extends React.Component {
 
   render() {
     return (
-      <div id="clock">
+      <div className="clock">
         <Face size={this.size} />
         <Hands size={this.size} />
       </div>

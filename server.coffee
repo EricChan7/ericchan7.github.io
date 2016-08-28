@@ -10,7 +10,8 @@ app.use gzip()
 app.use (next) ->
   if this.path == '/app.js' ||
       this.path == '/app.css' ||
-      this.path.match(/^\/assets\//g) != null
+      this.path.match(/^\/assets\//g) != null ||
+      this.path.match(/^\/fonts\//g) != null
     yield send this, this.path,
       root: __dirname + '/public',
       setHeaders: (res) ->

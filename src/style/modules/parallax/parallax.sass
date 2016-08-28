@@ -1,0 +1,42 @@
+=backgroundSetting
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+
+.parallax
+  perspective: 1px
+  height: 100vh
+  overflow-x: hidden
+  overflow-y: auto
+  // -webkit-perspective-origin-x: 100%
+  // perspective-origin-x: 100%
+
+  .parallax-group
+    position: relative
+    height: 100vh
+    transform-style: preserve-3d
+
+    .parallax-layer
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      // -webkit-transform-origin-x: 100%
+      // transform-origin-x: 100%
+
+      &.parallax-layer--back
+        transform: translateZ(-1px) scale(2)
+        +backgroundSetting
+
+      &.parallax-layer--deep
+        transform: translateZ(-2px) scale(3)
+        +backgroundSetting
+
+      &.parallax-layer--fore
+        transform: translateZ(90px) scale(.7)
+        +backgroundSetting
+
+      &.parallax-layer--base
+        transform: translateZ(0)
+        +backgroundSetting

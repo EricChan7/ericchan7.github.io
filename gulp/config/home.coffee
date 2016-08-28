@@ -2,7 +2,7 @@ src = './src'
 dest = './public'
 
 module.exports =
-  tasks: ['browserify', 'style', 'page']
+  tasks: ['browserify', 'style', 'page', 'font']
 
   browserify:
     script: 'react'
@@ -24,6 +24,10 @@ module.exports =
   page:
     src: "#{src}/*.html"
     dest: dest
+
+  font:
+    src: './node_modules/font-awesome/fonts/*'
+    dest: "#{dest}/fonts"
 
   browserSync:
     serve: dest

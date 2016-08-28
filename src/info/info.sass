@@ -1,0 +1,33 @@
+.info
+  height: 100%
+  background: $black
+
+  .columns
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+
+    .title
+      margin-bottom: 4em
+      letter-spacing: 1px
+
+      p
+        font-size: 0.85em
+
+    .attribute
+      margin-bottom: 2em
+
+      .attribute-set
+        margin: 1em 0
+
+      .item-set a
+        display: inline-block
+        line-height: 1.5
+
+        &:after
+          content: ','
+          margin-right: .5em
+
+        &:last-child:after
+          content: ''
+          margin-right: 0
