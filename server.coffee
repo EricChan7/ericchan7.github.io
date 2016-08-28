@@ -15,7 +15,8 @@ app.use (next) ->
     yield send this, this.path,
       root: __dirname + '/public',
       setHeaders: (res) ->
-        res.setHeader('Cache-Control', 'public, max-age=7200')
+        res.setHeader('Cache-Control', 'public, max-age=1209600')
+        res.setHeader('Vary', 'Accept-Encoding')
   else if this.path == '/icon.png'
     yield send(this, '/icon.png')
   else
