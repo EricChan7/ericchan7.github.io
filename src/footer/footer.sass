@@ -19,6 +19,12 @@ footer
       float: left
       margin-left: .5em
 
+    @media screen and #{$medium-breakpoint}, #{$small-breakpoint}
+      .columns:first-child a, .columns:last-child a
+        float: none
+        margin-left: .5em
+        margin-right: .5em
+
   .social
     text-align: center
 

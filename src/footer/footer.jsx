@@ -10,19 +10,19 @@ export default class Footer extends Component {
     return (
       <footer>
         <div className="row contact">
-          <div className="large-6 columns">
+          <div className="large-6 medium-8 small-6 columns">
             <a href="mailto:eric@kinyeung.com">
               eric@kinyeung.com
             </a>
           </div>
-          <div className="large-6 columns">
+          <div className="large-6 medium-8 small-6 columns">
             <a href="tel:+85267049679">
               +852 67049679
             </a>
           </div>
         </div>
         <div className="row">
-          <div className="large-8 centered columns">
+          <div className="large-8 medium-8 small-6 centered columns">
             <ul className="social clearfix">
               <li>
                 <a href="https://hk.linkedin.com/in/kin-yeung-chan-a990b099" className="icon">
