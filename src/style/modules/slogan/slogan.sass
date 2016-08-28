@@ -1,6 +1,46 @@
+// .slogan
+//   text-align: center
+//   line-height: 100vh
+//   font-size: 3em
+//   color: darken($main, 10%)
+//   background-color: rgba(invert($white), .66)
+//   position: relative
+
+//   &:before
+//     content: '“'
+//     font-size: 6em
+//     position: relative
+//     top: .4em
+
+//   .source
+//     font-size: .75rem
+
 .slogan
-  text-align: center
-  line-height: 100vh
-  font-size: 2em
-  color: darken($main, 10%)
+  position: relative
+  height: 100%
   background-color: rgba(invert($white), .66)
+
+  blockquote
+    margin: 0
+    text-align: center
+    position: relative
+    top: 50%
+    transform: translateY(-75%)
+    font-size: 3em
+
+    &:before
+      content: '“'
+      font-size: 4em
+      position: relative
+      top: .4em
+      line-height: 0
+
+    cite
+      display: block
+      font-size: 1rem
+      text-align: right
+      margin-right: 15em
+
+      &:before
+        content: '--'
+
