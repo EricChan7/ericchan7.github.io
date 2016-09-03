@@ -18,7 +18,7 @@ module.exports = class Api
     @token = localStorage.getItem 'token'
 
   is_logged_in: ->
-    @token.length != 0
+    @token? && @token.length != 0
 
   ping: () ->
     self = @
