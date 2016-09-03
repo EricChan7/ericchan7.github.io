@@ -25,6 +25,7 @@
   "browser": {},
   "dependencies": {
     "action-cable-react": "^0.1.1",
+    "async": "^2.0.1",
     "font-awesome": "^4.5.0",
     "jquery": "^2.1.4",
     "koa": "^1.2.1",

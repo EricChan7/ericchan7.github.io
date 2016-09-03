@@ -3,10 +3,10 @@ request = require 'superagent'
 basic_encode = (a, b) ->
   'Basic ' + btoa("#{a}:#{b}")
 
-errorHandle = (reject) ->
+errorHandle = (err) ->
   if err.status == 401
-    localStorage.setItem 'email', undefined
-    localStorage.setItem 'token', undefined
+    localStorage.setItem 'email', ''
+    localStorage.setItem 'token', ''
     self.email = localStorage.getItem 'email'
     self.token = localStorage.getItem 'token'
 
@@ -18,7 +18,7 @@ module.exports = class Api
     @token = localStorage.getItem 'token'
 
   is_logged_in: ->
-    @token?
+    @token.length != 0
 
   ping: () ->
     self = @
@@ -73,8 +73,8 @@ module.exports = class Api
           Authorization: basic_encode(self.email, self.token)
         .end (err, res) ->
           if !err
-            localStorage.setItem 'email', undefined
-            localStorage.setItem 'token', undefined
+            localStorage.setItem 'email', ''
+            localStorage.setItem 'token', ''
             self.email = localStorage.getItem 'email'
             self.token = localStorage.getItem 'token'
             resolve(res)
@@ -87,11 +87,26 @@ module.exports = class Api
       self.request.get "#{self.api}/galleries"
         .set
           Authorization: basic_encode(self.email, self.token)
+        .set 'Content-Type', 'application/json'
         .end (err, res) ->
           if !err
             resolve(res)
           else
-            errorHandle()
+            errorHandle(err)
+            reject(err)
+
+  showGalleries: (id) ->
+    self = @
+    new Promise (resolve, reject) ->
+      self.request.get "#{self.api}/galleries/#{id}"
+        .set
+          Authorization: basic_encode(self.email, self.token)
+        .set 'Content-Type', 'application/json'
+        .end (err, res) ->
+          if !err
+            resolve(res)
+          else
+            errorHandle(err)
             reject(err)
 
   randomGalleries: (n) ->
@@ -104,7 +119,7 @@ module.exports = class Api
           if !err
             resolve(res)
           else
-            errorHandle()
+            errorHandle(err)
             reject(err)
 
   updateGalleries: (name) ->
@@ -113,9 +128,10 @@ module.exports = class Api
       self.request.put "#{self.api}/galleries/#{name}"
         .set
           Authorization: basic_encode(self.email, self.token)
+        .set 'Content-Type', 'application/json'
         .end (err, res) ->
           if !err
             resolve(res)
           else
-            errorHandle()
+            errorHandle(err)
             reject(err)

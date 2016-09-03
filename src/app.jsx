@@ -6,12 +6,14 @@ import Mixin from 'mixin'
 
 import { Router, Route, browserHistory } from 'react-router'
 import Parallax from 'parallax/parallax'
-import Gallery from 'gallery/gallery'
-import Clock from 'clock/clock'
 import Slogan from 'slogan/slogan'
 import Info from 'info/info'
 import Footer from 'footer/footer'
 import Header from 'header/header'
+
+import Gallery from 'gallery/gallery'
+import Clock from 'clock/clock'
+import Admin from 'admin/admin'
 
 class App extends React.Component {
   constructor (props) {
@@ -102,8 +104,9 @@ $(document).ready( () => {
   ReactDOM.render((
     <Router history={ browserHistory }>
       <Route path="/" component={ App } />
-      <Route path="/clock" component={ Clock }></Route>
+      <Route path="/clock" component={ Clock } />
       <Route path="/gallery" component={ Gallery } />
+      <Route path="/gallery/admin" component={ Admin } />
     </Router>
   ), document.getElementById('main-container'))
 })
