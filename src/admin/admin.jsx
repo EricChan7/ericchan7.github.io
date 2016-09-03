@@ -78,7 +78,7 @@ export default class Admin extends Component {
   }
 
   updateAll () {
-    async.each(this.state.galleries, (item, callback) => {
+    async.eachLimit(this.state.galleries, 1, (item, callback) => {
       window.api.updateGalleries(item.name).then(
         (data) => {
           this.setState({
