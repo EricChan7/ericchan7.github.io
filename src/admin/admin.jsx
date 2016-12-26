@@ -60,8 +60,8 @@ export default class Admin extends Component {
     window.api.getGalleries().then(
       (data) => {
         this.setState({
-          galleries: data.body,
-          galleriesList: data.body.map((gallery) => {
+          galleries: data.body.galleries,
+          galleriesList: data.body.galleries.map((gallery) => {
             return (
               <li key={ gallery.id }>
                 <a onClick={ this._onGetGallery.bind(this, gallery.id) } >
